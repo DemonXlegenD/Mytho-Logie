@@ -15,10 +15,28 @@ MonoBehaviour:
   Path: FMODAssets/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638615586702391099
+  lastModified: 638615613213619642
   FileSizes:
   - Name: 
-    Value: 712
+    Value: 1076
+  Exists: 1
+--- !u!114 &-2517475091604002603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/LEVEL.bank
+  m_EditorClassIdentifier: 
+  Path: FMODAssets/Desktop/LEVEL.bank
+  Name: LEVEL
+  StudioPath: bank:/LEVEL
+  lastModified: 638615613213715724
+  FileSizes: []
   Exists: 1
 --- !u!114 &-2306737493581532686
 MonoBehaviour:
@@ -35,7 +53,7 @@ MonoBehaviour:
   Path: FMODAssets/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638615586702319005
+  lastModified: 638615613213604582
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -53,11 +71,31 @@ MonoBehaviour:
   EditorBanks:
   - {fileID: -4520328376850716750}
   - {fileID: -2306737493581532686}
+  - {fileID: -2517475091604002603}
+  - {fileID: 8123393687149589918}
   EditorEvents: []
   EditorParameters: []
   MasterBanks:
   - {fileID: -2306737493581532686}
   StringsBanks:
   - {fileID: -4520328376850716750}
-  cacheTime: 638615586702391099
+  cacheTime: 638615613213715724
   cacheVersion: 131619
+--- !u!114 &8123393687149589918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/MENU.bank
+  m_EditorClassIdentifier: 
+  Path: FMODAssets/Desktop/MENU.bank
+  Name: MENU
+  StudioPath: bank:/MENU
+  lastModified: 638615613213670469
+  FileSizes: []
+  Exists: 1
