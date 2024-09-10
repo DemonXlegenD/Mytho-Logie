@@ -1,4 +1,5 @@
 using Nova;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,7 +22,6 @@ public class PanelCommentary : MonoBehaviour
 
     public void ShowAffiche()
     {
-        Debug.Log("Show Affiche");
         List<GameObject> list = stacks.GetAffiches();
         UIBlock2D afficheBlock = list.Count > 1 ? (list.Count == 3 ? ThreeAffiche : TwoAffiche) : OneAffiche;
         for (int i = 0; i < list.Count; i++) {
@@ -29,6 +29,7 @@ public class PanelCommentary : MonoBehaviour
             list[i].transform.SetParent(afficheBlock.transform.GetChild(i).transform, true);
             list[i].transform.position = afficheBlock.transform.GetChild(i).transform.position + new Vector3(0f,0.5f,0f);
         }
+        Debug.Log(afficheBlock.name);
         Panel.gameObject.SetActive(true);
         afficheBlock.gameObject.SetActive(true);
     }

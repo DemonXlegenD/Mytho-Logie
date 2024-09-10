@@ -253,6 +253,7 @@ public class DragAndDrop : MonoBehaviour
 
     public void Next()
     {
+        Debug.Log("Next dad");
         isNext = true;
     }
 
