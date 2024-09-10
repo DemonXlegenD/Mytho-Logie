@@ -1,3 +1,4 @@
+using Nova;
 using Nova.TMP;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,15 +11,19 @@ public class Stacks : MonoBehaviour
     [SerializeField] private int indexActualAffiche = 0;
     [SerializeField] private GameObject prefabAffiche;
 
+    [SerializeField] private Interactable buttonNextAffiche;
+
     [SerializeField] private GameObject actualAffiche;
     private List<GameObject> affichesUndone = new List<GameObject>(10);
     private List<GameObject> affichesDone = new List<GameObject>(10);
     [SerializeField] private TextMeshProTextBlock remainingAffiche;
 
+    [SerializeField] private float timeBeforeEnding = 5f;
+
     // Start is called before the first frame update
     void Start()
     {
-        gameManager= GetComponent<GameManager>();
+        gameManager= GameManager.Instance;
        
         //Pool d'affiche
 
@@ -36,7 +41,6 @@ public class Stacks : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-   
     }
 
     public void ChangeRemainingAfficheText()
@@ -53,10 +57,20 @@ public class Stacks : MonoBehaviour
         affichesUndone.Remove(actualAffiche);
                ChangeRemainingAfficheText();
         if (affichesUndone.Count > 0) actualAffiche = affichesUndone[0];
-        else gameManager.PauseGame();
+        else
+        {
+            buttonNextAffiche.enabled = false;
+            StartCoroutine(EndGame(timeBeforeEnding));
+
+        }
     }
 
  
+    private IEnumerator EndGame(float _timer)
+    {
+        yield return new WaitForSeconds(_timer);
 
+        gameManager.ChangeScene("MainMenu");
+    }
 
 }
