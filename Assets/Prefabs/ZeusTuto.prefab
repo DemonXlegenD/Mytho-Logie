@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 62296741266457453}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.697876, y: -341.5035, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -667,8 +667,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMeshPro: {fileID: 9119431575997343764}
+  arrow: {fileID: 0}
   textList: []
   tutoIndex: 0
+  firstPosition: {x: -2.5, y: 0.65, z: 0}
+  firstRotation: {x: 0, y: 0, z: -80, w: 0}
 --- !u!1 &3883998649817348242
 GameObject:
   m_ObjectHideFlags: 0
