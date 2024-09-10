@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="Workspace" id="{a2d52b91-2b42-4ef7-b001-513a5a869bb0}">
+		<property name="builtBanksOutputDirectory">
+			<value>../../../../../../../ProjetsGit/Mythologie/FMODAssets</value>
+		</property>
+		<relationship name="masterEventFolder">
+			<destination>{de9a67e6-e6f0-44a3-af2c-2b202f80c34e}</destination>
+		</relationship>
+		<relationship name="masterTagFolder">
+			<destination>{580409e0-a773-4355-baa4-ee0c1e79fca9}</destination>
+		</relationship>
+		<relationship name="masterEffectPresetFolder">
+			<destination>{fdd9d564-f433-4efd-a321-d8cba47ddcc8}</destination>
+		</relationship>
+		<relationship name="masterParameterPresetFolder">
+			<destination>{0042b4ab-a08c-4f53-b23a-e6c151f4606d}</destination>
+		</relationship>
+		<relationship name="masterBankFolder">
+			<destination>{d6f95f79-7970-4f8e-a3b6-943d67282aff}</destination>
+		</relationship>
+		<relationship name="masterSandboxFolder">
+			<destination>{018a6ca2-2725-4b70-975a-7469628ec33e}</destination>
+		</relationship>
+		<relationship name="masterAssetFolder">
+			<destination>{10b74d5f-fefe-4528-a8a1-d7e9df6ae38e}</destination>
+		</relationship>
+		<relationship name="mixer">
+			<destination>{ddbfd283-3041-44ac-9e67-c05a75ef49af}</destination>
+		</relationship>
+		<relationship name="profilerSessionFolder">
+			<destination>{10ef3275-5130-4eaa-ae5c-8fbe2e4fff45}</destination>
+		</relationship>
+		<relationship name="platforms">
+			<destination>{fed61530-1e61-4197-84d3-d9741a84e9a4}</destination>
+		</relationship>
+	</object>
+</objects>
