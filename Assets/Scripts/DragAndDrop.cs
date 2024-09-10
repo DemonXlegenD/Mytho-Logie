@@ -11,10 +11,11 @@ public class DragAndDrop : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private static int sortingOrder = 1;
     //private bool isDragging = false;
-
+    public GameObject[] stickers; // Liste des stickers associés à cette affiche
     [SerializeField] private Vector2 stockPosition = new Vector2(20, 0);
     bool isNext = false;
     bool detect_sticker = true;
+    string pathDefaultSticker = "Assets/Prefabs/Affiches/Zeus.prefab";
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -197,14 +198,14 @@ public class DragAndDrop : MonoBehaviour
                 string emplacement = values[2];
                 int point = int.Parse(values[3]);
 
-                if (obj.StickerName == sticker && obj.name == emplacement && theme == themeName)
+                if (obj.StickerName.Contains(sticker) && obj.name == emplacement && themeName.Contains(theme))
                 {
                     results = point;
                 }
             }
         }
         
-        Debug.Log($"Emplacement du sticker {obj.StickerName} : {obj.name} à {obj.distance}. Pour le thème : {spriteRenderer.name} cela donne {results}");
+        Debug.Log($"Emplacement du sticker {obj.StickerName} : {obj.name} à {obj.distance}. Pour le thème : {themeName} cela donne {results}");
         return results;
     }
 
@@ -217,7 +218,8 @@ public class DragAndDrop : MonoBehaviour
                 AttachStickers();
                 List<UnseenPoints.ClosestObjectInfo> ObjectsForTheScore = ClosePage();
                 foreach (UnseenPoints.ClosestObjectInfo obj in ObjectsForTheScore) {
-                    int test = ReadCSV(obj, spriteRenderer.name);
+                    int nb_score = ReadCSV(obj, spriteRenderer.name);
+                    GameManager.Instance.score += nb_score;
                 }
                 detect_sticker = false;
             }
