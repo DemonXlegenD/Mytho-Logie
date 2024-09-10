@@ -59,3 +59,7 @@ crashlytics-build.properties
 Assets/Plugins/FMOD/Resources/FMODStudioCache.asset
 Assets/StreamingAssets/*.bank
 fmod_editor.log
+
+# Francois ignore
+
+git_next_message.md
