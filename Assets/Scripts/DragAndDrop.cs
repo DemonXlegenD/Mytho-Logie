@@ -12,6 +12,9 @@ public class DragAndDrop : MonoBehaviour
     private static int sortingOrder = 1;
     //private bool isDragging = false;
 
+    [SerializeField] private Vector2 stockPosition = new Vector2(20, 0);
+    bool isNext = false;
+    bool detect_sticker = true;
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -50,7 +53,10 @@ public class DragAndDrop : MonoBehaviour
 
     void OnMouseDrag()
     {
-        transform.position = GetMouseWorldPos() + offset;
+        if (!CompareTag("Affiche")) 
+        {
+            transform.position = GetMouseWorldPos() + offset;
+        }
     }
 
     void OnMouseUp()
@@ -111,7 +117,8 @@ public class DragAndDrop : MonoBehaviour
         }
     }
 
-    public List<UnseenPoints.ClosestObjectInfo> ClosePage() {
+    public List<UnseenPoints.ClosestObjectInfo> ClosePage() 
+    {
         List<Transform> stickersList = new List<Transform>();
         UnseenPoints detectedZone = GetComponent<UnseenPoints>();
         List<GameObject> objectsToRemove = new List<GameObject>();  // Liste temporaire pour stocker les objets à supprimer
@@ -164,8 +171,6 @@ public class DragAndDrop : MonoBehaviour
         return ClosestObjectInfoForTheScore;
     }
 
-
-
     // Optionnel : Dessiner un cadre autour de l'affiche dans la scène pour voir la zone de détection
     private void OnDrawGizmos()
     {
@@ -201,6 +206,36 @@ public class DragAndDrop : MonoBehaviour
         
         Debug.Log($"Emplacement du sticker {obj.StickerName} : {obj.name} à {obj.distance}. Pour le thème : {spriteRenderer.name} cela donne {results}");
         return results;
+    }
+
+    void Update()
+    {
+        if (isNext)
+        {
+            if(detect_sticker)
+            {
+                AttachStickers();
+                List<UnseenPoints.ClosestObjectInfo> ObjectsForTheScore = ClosePage();
+                foreach (UnseenPoints.ClosestObjectInfo obj in ObjectsForTheScore) {
+                    int test = ReadCSV(obj, spriteRenderer.name);
+                }
+                detect_sticker = false;
+            }
+            // Mouvement vers la position cible
+            transform.position = Vector2.Lerp(transform.position, stockPosition, 5.0f * Time.deltaTime);
+
+            // Vérification si l'objet est proche de la position finale
+            if (Vector2.Distance(transform.position, stockPosition) < 0.01f) // Seuil de tolérance (peut être ajusté)
+            {
+                transform.position = stockPosition; // S'assurer que l'objet est exactement à la position finale
+                isNext = false; // Arrêter le mouvement
+            }
+        }
+    }
+
+    public void Next()
+    {
+        isNext = true;
     }
 }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Affiche : MonoBehaviour
 {
-    [SerializeField] private Vector2 stockPosition = new Vector2(5, 0);
+    [SerializeField] private Vector2 stockPosition = new Vector2(10, 0);
     bool isNext = false;
     // Start is called before the first frame update
     void Start()
