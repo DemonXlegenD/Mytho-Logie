@@ -2,7 +2,6 @@ using Nova;
 using Nova.TMP;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class Stacks : MonoBehaviour
@@ -19,13 +18,17 @@ public class Stacks : MonoBehaviour
     [SerializeField] private TextMeshProTextBlock remainingAffiche;
 
     [SerializeField] private float timeBeforeEnding = 5f;
+    [SerializeField] private int maxAffiche = 1;
 
+    [SerializeField] private PanelCommentary PanelCommentary;
     // Start is called before the first frame update
     void Start()
     {
-        gameManager= GameManager.Instance;
+        affichesUndone = new List<GameObject>(maxAffiche);
+        affichesDone = new List<GameObject>(maxAffiche);
+        gameManager = GameManager.Instance;
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < maxAffiche; i++)
         {
             GameObject instance = Instantiate(prefabAffiche, transform.position, Quaternion.identity);
 
@@ -54,7 +57,7 @@ public class Stacks : MonoBehaviour
         affichesDone.Add(actualAffiche);
         actualAffiche.GetComponent<SpriteRenderer>().sortingOrder = 1;
         affichesUndone.Remove(actualAffiche);
-               ChangeRemainingAfficheText();
+        ChangeRemainingAfficheText();
         if (affichesUndone.Count > 0) actualAffiche = affichesUndone[0];
         else
         {
@@ -64,12 +67,13 @@ public class Stacks : MonoBehaviour
         }
     }
 
- 
+
     private IEnumerator EndGame(float _timer)
     {
         yield return new WaitForSeconds(_timer);
 
-        gameManager.ChangeScene("MainMenu");
+        PanelCommentary.ShowAffiche();
     }
 
+    public List<GameObject> GetAffiches() { return affichesDone; }
 }
