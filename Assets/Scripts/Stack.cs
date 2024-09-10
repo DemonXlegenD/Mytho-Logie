@@ -20,7 +20,7 @@ public class Stacks : MonoBehaviour
     [SerializeField] private float timeBeforeEnding = 5f;
     [SerializeField] private int maxAffiche = 1;
 
-    [SerializeField] private PanelCommentary PanelCommentary;
+    [SerializeField] private ConfigurationUI ConfigurationUI;
     // Start is called before the first frame update
     void Start()
     {
@@ -72,7 +72,7 @@ public class Stacks : MonoBehaviour
     {
         yield return new WaitForSeconds(_timer);
 
-        PanelCommentary.ShowAffiche();
+        ConfigurationUI.StartCommentary();
     }
 
     public List<GameObject> GetAffiches() { return affichesDone; }
