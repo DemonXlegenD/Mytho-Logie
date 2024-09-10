@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.IO;
 
 public class DragAndDrop : MonoBehaviour
 {
@@ -56,10 +58,10 @@ public class DragAndDrop : MonoBehaviour
         //isDragging = false;
         if (CompareTag("Affiche"))
         {
-            //List<UnseenPoints.ClosestObjectInfo> ObjectsForTheScore = ClosePage();
-            //foreach (UnseenPoints.ClosestObjectInfo obj in ObjectsForTheScore) {
-            //    Debug.Log($"Emplacement du sticker {obj.StickerName} : {obj.name} à {obj.distance}");
-            //}
+            List<UnseenPoints.ClosestObjectInfo> ObjectsForTheScore = ClosePage();
+            foreach (UnseenPoints.ClosestObjectInfo obj in ObjectsForTheScore) {
+                int test = ReadCSV(obj, spriteRenderer.name);
+            }
             DetachStickers(); // Détache les stickers une fois que l'affiche est relâchée
         }
     }
@@ -170,4 +172,36 @@ public class DragAndDrop : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position, GetComponent<Collider2D>().bounds.size);
     }
+
+    private int ReadCSV(UnseenPoints.ClosestObjectInfo obj, string themeName)
+    {
+        string filePath = "Assets/DataBase/ScoreDataBase.csv";
+        int results = 0;
+
+        using (StreamReader sr = new StreamReader(filePath))
+        {
+            string headerLine = sr.ReadLine(); // Lire l'entête
+
+            while (!sr.EndOfStream)
+            {
+                string line = sr.ReadLine();
+                string[] values = line.Split(',');
+
+                string theme = values[0];
+                string sticker = values[1];
+                string emplacement = values[2];
+                int point = int.Parse(values[3]);
+
+                if (obj.StickerName == sticker && obj.name == emplacement && theme == themeName)
+                {
+                    results = point;
+                }
+            }
+        }
+        
+        Debug.Log($"Emplacement du sticker {obj.StickerName} : {obj.name} à {obj.distance}. Pour le thème : {spriteRenderer.name} cela donne {results}");
+        return results;
+    }
 }
+
+
