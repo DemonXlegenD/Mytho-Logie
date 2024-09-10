@@ -2,20 +2,21 @@ using Nova;
 using Nova.TMP;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class Stacks : MonoBehaviour
 {
     private GameManager gameManager;
     [SerializeField] private int indexActualAffiche = 0;
+
+    [SerializeField] private int maxList = 10;
     [SerializeField] private GameObject prefabAffiche;
 
     [SerializeField] private Interactable buttonNextAffiche;
 
     [SerializeField] private GameObject actualAffiche;
-    private List<GameObject> affichesUndone = new List<GameObject>(10);
-    private List<GameObject> affichesDone = new List<GameObject>(10);
+    private List<GameObject> affichesUndone = new List<GameObject>();
+    private List<GameObject> affichesDone = new List<GameObject>();
     [SerializeField] private TextMeshProTextBlock remainingAffiche;
 
     [SerializeField] private float timeBeforeEnding = 5f;
@@ -23,9 +24,12 @@ public class Stacks : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameManager= GameManager.Instance;
+        affichesUndone = new List<GameObject>(maxList);
+        affichesDone = new List<GameObject>(maxList);
 
-        for (int i = 0; i < 10; i++)
+        gameManager = GameManager.Instance;
+
+        for (int i = 0; i < maxList; i++)
         {
             GameObject instance = Instantiate(prefabAffiche, transform.position, Quaternion.identity);
 
@@ -36,14 +40,9 @@ public class Stacks : MonoBehaviour
         ChangeRemainingAfficheText();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     public void ChangeRemainingAfficheText()
     {
-        remainingAffiche.text = $"Affiches Restantes : {affichesUndone.Count}";
+        remainingAffiche.text = $"{affichesDone.Count} / {maxList}";
     }
 
 
@@ -54,7 +53,7 @@ public class Stacks : MonoBehaviour
         affichesDone.Add(actualAffiche);
         actualAffiche.GetComponent<SpriteRenderer>().sortingOrder = 1;
         affichesUndone.Remove(actualAffiche);
-               ChangeRemainingAfficheText();
+        ChangeRemainingAfficheText();
         if (affichesUndone.Count > 0) actualAffiche = affichesUndone[0];
         else
         {
@@ -64,7 +63,7 @@ public class Stacks : MonoBehaviour
         }
     }
 
- 
+
     private IEnumerator EndGame(float _timer)
     {
         yield return new WaitForSeconds(_timer);
