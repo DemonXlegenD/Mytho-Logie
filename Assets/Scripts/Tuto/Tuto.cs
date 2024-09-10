@@ -8,7 +8,7 @@ public class Tuto : MonoBehaviour
 {
     [SerializeField] private Zeus zeus;
     [SerializeField] private UIBlock2D block;
-    [SerializeField] private Button nextButton;
+    [SerializeField] private Button nextAfficheButton;
     private DragAndDrop[] dragAndDrops;
     // Start is called before the first frame update
     void Start()
@@ -16,7 +16,7 @@ public class Tuto : MonoBehaviour
 
         zeus.gameObject.SetActive(false);
         block.gameObject.SetActive(false);
-        nextButton.gameObject.SetActive(false);
+        nextAfficheButton.gameObject.SetActive(false);
         dragAndDrops = FindObjectsOfType<DragAndDrop>();
         foreach( DragAndDrop dragAndDrop in dragAndDrops)
         {
@@ -49,8 +49,13 @@ public class Tuto : MonoBehaviour
         }
     }
 
-    public void ActiveButton()
+    public void ActiveNextButtonTuto()
     {
-        nextButton.gameObject.SetActive(true);
+        nextAfficheButton.gameObject.SetActive(true);
+    }
+
+    public void ActiveNextAfficheButton()
+    {
+        nextAfficheButton.gameObject.SetActive(true);
     }
 }
