@@ -58,10 +58,10 @@ public class DragAndDrop : MonoBehaviour
         //isDragging = false;
         if (CompareTag("Affiche"))
         {
-            List<UnseenPoints.ClosestObjectInfo> ObjectsForTheScore = ClosePage();
-            foreach (UnseenPoints.ClosestObjectInfo obj in ObjectsForTheScore) {
-                int test = ReadCSV(obj, spriteRenderer.name);
-            }
+            //List<UnseenPoints.ClosestObjectInfo> ObjectsForTheScore = ClosePage();
+            //foreach (UnseenPoints.ClosestObjectInfo obj in ObjectsForTheScore) {
+            //    int test = ReadCSV(obj, spriteRenderer.name);
+            //}
             DetachStickers(); // Détache les stickers une fois que l'affiche est relâchée
         }
     }
