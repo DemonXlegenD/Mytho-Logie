@@ -24,9 +24,6 @@ public class Stacks : MonoBehaviour
     void Start()
     {
         gameManager= GameManager.Instance;
-       
-        //Pool d'affiche
-
 
         for (int i = 0; i < 10; i++)
         {
@@ -35,6 +32,7 @@ public class Stacks : MonoBehaviour
             affichesUndone.Add(instance);
         }
         actualAffiche = affichesUndone[0];
+        actualAffiche.GetComponent<SpriteRenderer>().sortingOrder = 1;
         ChangeRemainingAfficheText();
     }
 
@@ -52,8 +50,9 @@ public class Stacks : MonoBehaviour
     public void NextAffiche()
     {
         Debug.Log("Next First");
-        actualAffiche.GetComponent<Affiche>().Next();
+        actualAffiche.GetComponent<DragAndDrop>().Next();
         affichesDone.Add(actualAffiche);
+        actualAffiche.GetComponent<SpriteRenderer>().sortingOrder = 1;
         affichesUndone.Remove(actualAffiche);
                ChangeRemainingAfficheText();
         if (affichesUndone.Count > 0) actualAffiche = affichesUndone[0];
