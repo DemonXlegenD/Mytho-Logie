@@ -10,7 +10,7 @@ public class DragAndDrop : MonoBehaviour
     private float zCoord;
     private SpriteRenderer spriteRenderer;
     private static int sortingOrder = 1;
-    //private bool isDragging = false;
+    private bool isDragging = false;
 
     [SerializeField] private Vector2 stockPosition = new Vector2(20, 0);
     bool isNext = false;
@@ -32,14 +32,14 @@ public class DragAndDrop : MonoBehaviour
     {
         zCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
         offset = gameObject.transform.position - GetMouseWorldPos();
-
+        isDragging = true;
         if (!CompareTag("Affiche")) 
         {
             spriteRenderer.sortingOrder = sortingOrder++;
         }
         else
         {
-            //isDragging = true;
+            
             AttachStickers(); // Appelle la fonction qui attache les stickers existants sur l'affiche
         }
     }
@@ -61,7 +61,8 @@ public class DragAndDrop : MonoBehaviour
 
     void OnMouseUp()
     {
-        //isDragging = false;
+
+        isDragging = false;
         if (CompareTag("Affiche"))
         {
             //List<UnseenPoints.ClosestObjectInfo> ObjectsForTheScore = ClosePage();
@@ -70,6 +71,23 @@ public class DragAndDrop : MonoBehaviour
             //}
             DetachStickers(); // Détache les stickers une fois que l'affiche est relâchée
         }
+    }
+
+    //Stickers in affiche or not
+
+    public bool IsOnAffiche()
+    {
+        Collider2D[] hitColliders = Physics2D.OverlapBoxAll(transform.position, GetComponent<Collider2D>().bounds.size, 0f);
+        foreach (Collider2D hitCollider in hitColliders)
+        {
+            SpriteRenderer stickerRenderer = hitCollider.GetComponent<SpriteRenderer>();
+
+            if (hitCollider.CompareTag("Sticker"))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     // Attache les stickers à l'affiche quand on clique dessus
@@ -237,6 +255,8 @@ public class DragAndDrop : MonoBehaviour
     {
         isNext = true;
     }
+
+    public bool IsDragging() { return isDragging; }
 }
 
 
