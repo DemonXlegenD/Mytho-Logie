@@ -43,11 +43,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Affiches
-    uniqueID: 2638349429
+  - name: OtherAffiche
+    uniqueID: 3688222345
     locked: 0
-  - name: Stickers
-    uniqueID: 4097750809
+  - name: MainAffiche
+    uniqueID: 66722403
+    locked: 0
+  - name: AloneSticker
+    uniqueID: 67586219
     locked: 0
   - name: Tuto
     uniqueID: 118195759
