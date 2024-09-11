@@ -13,6 +13,7 @@ public class Affiche : MonoBehaviour
     [SerializeField] private Vector2 stockPosition = new Vector2(20, 0);
     bool isNext = false;
     bool detect_sticker = true;
+    public int score;
 
     void Start()
     {
@@ -123,6 +124,7 @@ public class Affiche : MonoBehaviour
         }
         
         Debug.Log($"Emplacement du sticker {obj.StickerName} : {obj.name} à {obj.distance}. Pour le thème : {themeName} cela donne {results}");
+        score += results;
         return results;
     }
 
