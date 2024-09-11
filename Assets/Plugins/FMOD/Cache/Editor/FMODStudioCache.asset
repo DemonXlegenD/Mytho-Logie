@@ -1,5 +1,23 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6334299598522519467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/MENU.bank
+  m_EditorClassIdentifier: 
+  Path: FMODAssets/Desktop/MENU.bank
+  Name: MENU
+  StudioPath: bank:/MENU
+  lastModified: 638616476496042906
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-5218262999062501742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,10 +33,28 @@ MonoBehaviour:
   Path: FMODAssets/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638616020759018675
+  lastModified: 638616476496042906
   FileSizes:
   - Name: 
-    Value: 712
+    Value: 1076
+  Exists: 1
+--- !u!114 &-2948639551097793963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/LEVEL.bank
+  m_EditorClassIdentifier: 
+  Path: FMODAssets/Desktop/LEVEL.bank
+  Name: LEVEL
+  StudioPath: bank:/LEVEL
+  lastModified: 638616476496032909
+  FileSizes: []
   Exists: 1
 --- !u!114 &-1333683374379620137
 MonoBehaviour:
@@ -35,7 +71,7 @@ MonoBehaviour:
   Path: FMODAssets/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638616020759008690
+  lastModified: 638616476496042906
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -53,11 +89,13 @@ MonoBehaviour:
   EditorBanks:
   - {fileID: -5218262999062501742}
   - {fileID: -1333683374379620137}
+  - {fileID: -2948639551097793963}
+  - {fileID: -6334299598522519467}
   EditorEvents: []
   EditorParameters: []
   MasterBanks:
   - {fileID: -1333683374379620137}
   StringsBanks:
   - {fileID: -5218262999062501742}
-  cacheTime: 638616020759018675
+  cacheTime: 638616476496042906
   cacheVersion: 131619
