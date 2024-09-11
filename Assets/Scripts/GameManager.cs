@@ -78,6 +78,17 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(previousLoadedScene);
     }
 
+    public void MuteAudio()
+    {
+        //AudioSource myAudioSource = GetComponent<AudioSource>();
+        //myAudioSource.mute = true;  // Mute un audio spécifique
+    }
+
+    public void UnmuteAudio()
+    {
+        //AudioSource myAudioSource = GetComponent<AudioSource>();
+       // myAudioSource.mute = false;  // Mute un audio spécifique
+    }
     public void Quit()
     {
         Application.Quit();

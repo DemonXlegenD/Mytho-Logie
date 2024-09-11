@@ -100,6 +100,7 @@ public class Affiche : MonoBehaviour
         foreach (GameObject sticker in stickersIn)
         {
             sticker.transform.SetParent(transform);
+            sticker.GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 
@@ -108,6 +109,7 @@ public class Affiche : MonoBehaviour
         foreach (GameObject sticker in stickersIn)
         {
             sticker.transform.SetParent(null);
+            sticker.GetComponent<BoxCollider2D>().enabled = true;
         }
     }
 
