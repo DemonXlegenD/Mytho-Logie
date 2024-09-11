@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{b84fd497-dc57-4f1a-87f4-95d9a078e942}">
+		<property name="assetPath">
+			<value>AUDIO/Poster_switch_2.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.53395833333333331</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{10b74d5f-fefe-4528-a8a1-d7e9df6ae38e}</destination>
+		</relationship>
+	</object>
+</objects>
