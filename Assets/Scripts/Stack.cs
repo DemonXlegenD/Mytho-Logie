@@ -7,30 +7,27 @@ using UnityEngine;
 
 public class Stacks : MonoBehaviour
 {
-    private GameManager gameManager;
-    [SerializeField] private int indexActualAffiche = 0;
-    
+    // SerializeField
+    //[SerializeField] private int indexActualAffiche = 0;
     [SerializeField] private GameObject[] affichesPrefabs; // Liste des préfabriqués d'affiches
-
     [SerializeField] private Interactable buttonNextAffiche;
-
     [SerializeField] private GameObject actualAffiche;
+    [SerializeField] private TextMeshProTextBlock remainingAffiche;
+    [SerializeField] private float timeBeforeEnding = 5f;
+    [SerializeField] private GameObject spawnPoint; // Point d'apparition
+
+    // Private var
+    private GameManager gameManager;
+    private BoxCollider2D spawnZone; // BoxCollider définissant la zone de spawn
     private List<GameObject> affichesUndone = new List<GameObject>(10);
     private List<GameObject> affichesDone = new List<GameObject>(10);
-    [SerializeField] private TextMeshProTextBlock remainingAffiche;
-
-    [SerializeField] private float timeBeforeEnding = 5f;
-
-    [SerializeField] private GameObject[] objectsToSpawn; // Liste des objets à instancier
-    [SerializeField] private GameObject spawnPoint; // Point d'apparition
-    private BoxCollider2D spawnZone; // BoxCollider définissant la zone de spawn
 
     void Start()
     {
         gameManager = GameManager.Instance;
         spawnZone = spawnPoint.GetComponent<BoxCollider2D>();
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 3; i++)
         {
             // Sélectionner une affiche aléatoire parmi les préfabriqués
             GameObject affichePrefab = affichesPrefabs[Random.Range(0, affichesPrefabs.Length)];
@@ -45,11 +42,6 @@ public class Stacks : MonoBehaviour
         ChangeRemainingAfficheText();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     public void ChangeRemainingAfficheText()
     {
         remainingAffiche.text = $"Affiches Restantes : {affichesUndone.Count}";
@@ -57,7 +49,7 @@ public class Stacks : MonoBehaviour
 
     public void NextAffiche()
     {
-        actualAffiche.GetComponent<DragAndDrop>().Next();
+        actualAffiche.GetComponent<Affiche>().Next();
         affichesDone.Add(actualAffiche);
         actualAffiche.GetComponent<SpriteRenderer>().sortingOrder = 1;
         affichesUndone.Remove(actualAffiche);
@@ -82,7 +74,7 @@ public class Stacks : MonoBehaviour
 
     private void SpawnStickersForAffiche(GameObject affiche)
     {
-        DragAndDrop afficheData = affiche.GetComponent<DragAndDrop>();
+        Affiche afficheData = affiche.GetComponent<Affiche>();
         // Vérifier que la liste de stickers n'est pas vide
         if (afficheData.stickers.Length == 0)
         {

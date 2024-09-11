@@ -105,9 +105,8 @@ GameObject:
   - component: {fileID: 5533045888956384571}
   - component: {fileID: 2055391803500874338}
   - component: {fileID: -145512788992285051}
-  - component: {fileID: 6395206693530011357}
+  - component: {fileID: -1983276292353591114}
   - component: {fileID: 4210593224032555862}
-  - component: {fileID: 4401110448747521560}
   m_Layer: 0
   m_Name: "Apollon_gagne_un_combat_\xE0_mort"
   m_TagString: Affiche
@@ -125,7 +124,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.78, y: -1.32, z: 0}
-  m_LocalScale: {x: 0.45, y: 0.45, z: 0.45}
+  m_LocalScale: {x: 0.14, y: 0.14, z: 0.14}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3401905469897076728}
@@ -176,7 +175,7 @@ SpriteRenderer:
   m_SortingLayerID: -1656617867
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 78bdf00a68474a44d870c339400f85a1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b4c7feff123772744b82f2a462567f1b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -219,18 +218,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.2, y: 0.2}
+  m_Offset: {x: -0.32064438, y: 0.051246643}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 15.64, y: 19.08}
+    oldSize: {x: 35.08, y: 49.61591}
     newSize: {x: 15.64, y: 19.08}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 12, y: 17}
+  m_Size: {x: 34.462067, y: 49.726204}
   m_EdgeRadius: 0
 --- !u!50 &-145512788992285051
 Rigidbody2D:
@@ -259,7 +258,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6395206693530011357
+--- !u!114 &-1983276292353591114
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -268,12 +267,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3669921976156452316}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ef01545e98af4f46a242ad8814441ba, type: 3}
+  m_Script: {fileID: 11500000, guid: 144965074bf4ef343b8a15e6b4152926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   stickers:
-  - {fileID: 3669921976156452316, guid: ef75ad68700f24e45b576c1d49cc7945, type: 3}
-  stockPosition: {x: 13, y: 0}
+  - {fileID: 3669921976156452316, guid: 09679cc1d1d72934ab9ad28c8a1ede0e, type: 3}
+  stockPosition: {x: 15, y: 0}
 --- !u!114 &4210593224032555862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,21 +291,6 @@ MonoBehaviour:
   - {fileID: 367715406945746124}
   - {fileID: 44922798166475003}
   - {fileID: 6879809626514119045}
---- !u!114 &4401110448747521560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3669921976156452316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e8c171fc62924c498f621ac06709dcb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: 21300000, guid: 78bdf00a68474a44d870c339400f85a1, type: 3}
-  - {fileID: 21300000, guid: f43bd09037f4d944f9ac4e65fa4e4002, type: 3}
 --- !u!1 &6879809626514119045
 GameObject:
   m_ObjectHideFlags: 0
