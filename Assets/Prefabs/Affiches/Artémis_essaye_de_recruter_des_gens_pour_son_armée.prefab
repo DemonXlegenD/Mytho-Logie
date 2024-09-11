@@ -174,7 +174,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1656617867
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 78bdf00a68474a44d870c339400f85a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -271,7 +271,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stickers:
-  - {fileID: 3669921976156452316, guid: 09679cc1d1d72934ab9ad28c8a1ede0e, type: 3}
+  - {fileID: 3669921976156452316, guid: 2bfeff0c4af00f743b77ce98bf1faf57, type: 3}
+  - {fileID: 3669921976156452316, guid: 082d5cb678ce1244d9a0d9f52f384c60, type: 3}
+  - {fileID: 3669921976156452316, guid: 63f16351c94250943823dbbdb5199536, type: 3}
+  - {fileID: 3669921976156452316, guid: e23d4b0737dea8844a94cf236274800c, type: 3}
+  - {fileID: 3669921976156452316, guid: 7476b5088b4557a47a641cc3ccf3d386, type: 3}
+  - {fileID: 3669921976156452316, guid: d6351ddcbba237941bdfbc6a435dac82, type: 3}
+  - {fileID: 3669921976156452316, guid: 5027edb572a0f0f498b935cf5e092a50, type: 3}
   stockPosition: {x: 15, y: 0}
 --- !u!114 &4210593224032555862
 MonoBehaviour:
