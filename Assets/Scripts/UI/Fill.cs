@@ -1,6 +1,4 @@
 using Nova;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Fill : MonoBehaviour
@@ -19,17 +17,10 @@ public class Fill : MonoBehaviour
 
     public void ChangeSize(float percent)
     {
-          
-                // Utilise la taille X du parent comme référence
-                float referenceSizeX = parentBlock.Size.X.Value;
-                Debug.Log("RefSize " + referenceSizeX);
-                // Calcule la nouvelle taille en X en fonction du pourcentage
-                float newSize = m_fill.Size.X.Value;
-            Debug.Log(newSize);
-            newSize = referenceSizeX * percent;
-            Debug.Log("Percent " + percent);
-            Debug.Log("NewSize " + newSize);
-            // Applique la nouvelle taille
-            m_fill.Size.X.Value = newSize;
+
+        float referenceSizeX = parentBlock.Size.X.Value;
+        float newSize = m_fill.Size.X.Value;
+        newSize = referenceSizeX * percent;
+        m_fill.Size.X.Value = newSize;
     }
 }

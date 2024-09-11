@@ -12,6 +12,8 @@ namespace NovaSamples.UIControls
         [Tooltip("Event fired when the button is clicked.")]
         public UnityEvent OnClicked = null;
 
+        public UnityEvent OnPress = null;
+        public UnityEvent OnRelease = null;
         private void OnEnable()
         {
             if (View.TryGetVisuals(out ButtonVisuals visuals))
@@ -24,8 +26,8 @@ namespace NovaSamples.UIControls
             View.UIBlock.AddGestureHandler<Gesture.OnClick, ButtonVisuals>(HandleClicked);
             View.UIBlock.AddGestureHandler<Gesture.OnHover, ButtonVisuals>(ButtonVisuals.HandleHovered);
             View.UIBlock.AddGestureHandler<Gesture.OnUnhover, ButtonVisuals>(ButtonVisuals.HandleUnhovered);
-            View.UIBlock.AddGestureHandler<Gesture.OnPress, ButtonVisuals>(ButtonVisuals.HandlePressed);
-            View.UIBlock.AddGestureHandler<Gesture.OnRelease, ButtonVisuals>(ButtonVisuals.HandleReleased);
+            View.UIBlock.AddGestureHandler<Gesture.OnPress, ButtonVisuals>(HandlePress);
+            View.UIBlock.AddGestureHandler<Gesture.OnRelease, ButtonVisuals>(HandleReleased);
             View.UIBlock.AddGestureHandler<Gesture.OnCancel, ButtonVisuals>(ButtonVisuals.HandlePressCanceled);
         }
 
@@ -35,8 +37,8 @@ namespace NovaSamples.UIControls
             View.UIBlock.RemoveGestureHandler<Gesture.OnClick, ButtonVisuals>(HandleClicked);
             View.UIBlock.RemoveGestureHandler<Gesture.OnHover, ButtonVisuals>(ButtonVisuals.HandleHovered);
             View.UIBlock.RemoveGestureHandler<Gesture.OnUnhover, ButtonVisuals>(ButtonVisuals.HandleUnhovered);
-            View.UIBlock.RemoveGestureHandler<Gesture.OnPress, ButtonVisuals>(ButtonVisuals.HandlePressed);
-            View.UIBlock.RemoveGestureHandler<Gesture.OnRelease, ButtonVisuals>(ButtonVisuals.HandleReleased);
+            View.UIBlock.RemoveGestureHandler<Gesture.OnPress, ButtonVisuals>(HandlePress);
+            View.UIBlock.RemoveGestureHandler<Gesture.OnRelease, ButtonVisuals>(HandleReleased);
             View.UIBlock.RemoveGestureHandler<Gesture.OnCancel, ButtonVisuals>(ButtonVisuals.HandlePressCanceled);
         }
 
@@ -46,5 +48,9 @@ namespace NovaSamples.UIControls
         /// <param name="evt">The click event data.</param>
         /// <param name="visuals">The buttons visuals which received the click.</param>
         private void HandleClicked(Gesture.OnClick evt, ButtonVisuals visuals) => OnClicked?.Invoke();
+
+        private void HandlePress(Gesture.OnPress evt, ButtonVisuals visuals) => OnPress?.Invoke();
+
+        private void HandleReleased(Gesture.OnRelease evt, ButtonVisuals visuals) => OnRelease?.Invoke();
     }
 }
