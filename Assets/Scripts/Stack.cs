@@ -108,7 +108,7 @@ public class Stacks : MonoBehaviour
         StartCoroutine(EndGame(timeBeforeEnding));
     }
 
-    public List<GameObject> GetAffiches() { return affichesDone; }
+    public List<GameObject> GetAffiches() { return affichesUndone; }
 
     private IEnumerator EndGame(float _timer)
     {

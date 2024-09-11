@@ -65,6 +65,7 @@ public class DragAndDrop : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
         if (hit.collider != null && hit.collider.gameObject == gameObject)
         {
+            Debug.Log("HAAAN");
             // Redimensionnement avec la molette de la souris
             float scroll = Input.GetAxis("Mouse ScrollWheel");
             if (scroll != 0f)
