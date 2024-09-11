@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4520328376850716750
+--- !u!114 &-5218262999062501742
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15,30 +15,12 @@ MonoBehaviour:
   Path: FMODAssets/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638616448450266353
+  lastModified: 638616555187261652
   FileSizes:
   - Name: 
     Value: 1076
   Exists: 1
---- !u!114 &-2517475091604002603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/LEVEL.bank
-  m_EditorClassIdentifier: 
-  Path: FMODAssets/Desktop/LEVEL.bank
-  Name: LEVEL
-  StudioPath: bank:/LEVEL
-  lastModified: 638616448450256520
-  FileSizes: []
-  Exists: 1
---- !u!114 &-2306737493581532686
+--- !u!114 &-1333683374379620137
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -53,7 +35,7 @@ MonoBehaviour:
   Path: FMODAssets/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638616448450266353
+  lastModified: 638616555187246541
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -69,19 +51,19 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -4520328376850716750}
-  - {fileID: -2306737493581532686}
-  - {fileID: -2517475091604002603}
-  - {fileID: 8123393687149589918}
+  - {fileID: -5218262999062501742}
+  - {fileID: -1333683374379620137}
+  - {fileID: 5859397331747114622}
+  - {fileID: 5282469333567146300}
   EditorEvents: []
   EditorParameters: []
   MasterBanks:
-  - {fileID: -2306737493581532686}
+  - {fileID: -1333683374379620137}
   StringsBanks:
-  - {fileID: -4520328376850716750}
-  cacheTime: 638616448450266353
+  - {fileID: -5218262999062501742}
+  cacheTime: 638616555187261652
   cacheVersion: 131619
---- !u!114 &8123393687149589918
+--- !u!114 &5282469333567146300
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,6 +78,24 @@ MonoBehaviour:
   Path: FMODAssets/Desktop/MENU.bank
   Name: MENU
   StudioPath: bank:/MENU
-  lastModified: 638616448450256520
+  lastModified: 638616555187246541
+  FileSizes: []
+  Exists: 1
+--- !u!114 &5859397331747114622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/LEVEL.bank
+  m_EditorClassIdentifier: 
+  Path: FMODAssets/Desktop/LEVEL.bank
+  Name: LEVEL
+  StudioPath: bank:/LEVEL
+  lastModified: 638616555187246541
   FileSizes: []
   Exists: 1

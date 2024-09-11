@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
     {
         _state = GameState.Pause;
 
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
     }
 
     public void LoadPreviousScene()
