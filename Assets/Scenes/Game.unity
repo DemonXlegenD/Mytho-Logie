@@ -333,7 +333,7 @@ MonoBehaviour:
         Raw: 0
         Type: 0
       Y:
-        Raw: 107.935135
+        Raw: 107.982376
         Type: 0
       Z:
         Raw: 0
@@ -2199,7 +2199,7 @@ MonoBehaviour:
         Raw: 0
         Type: 0
       Y:
-        Raw: 431.74054
+        Raw: 431.9295
         Type: 0
       Z:
         Raw: 0
@@ -2734,7 +2734,7 @@ MonoBehaviour:
         Raw: 0
         Type: 0
       Y:
-        Raw: -107.93512
+        Raw: -107.98236
         Type: 0
       Z:
         Raw: 0
@@ -3466,6 +3466,10 @@ PrefabInstance:
     - target: {fileID: 559018120122845627, guid: b9d5596c931463046ba328b3c2fcd65c, type: 3}
       propertyPath: visuals.Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 559018120122845627, guid: b9d5596c931463046ba328b3c2fcd65c, type: 3}
+      propertyPath: visuals.Image.Adjustment.scaleMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 675027938472751158, guid: b9d5596c931463046ba328b3c2fcd65c, type: 3}
       propertyPath: m_IsActive

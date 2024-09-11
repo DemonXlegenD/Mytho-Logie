@@ -27,12 +27,29 @@ public class Stacks : MonoBehaviour
     // Private var
     private GameManager gameManager;
     private BoxCollider2D spawnZone; // BoxCollider définissant la zone de spawn
+    private int currentLvlMinScore;
 
     void Start()
     {
+        gameManager = GameManager.Instance;
+        currentLvlMinScore = gameManager.scoreCapToChangeLvl[gameManager.currentLvlID];
+        StartLevel();
+    }
+
+    void RestartLevel() 
+    {
+        gameManager.currentLvlID += 1;
+        gameManager.score = 0;
+        currentLvlMinScore = gameManager.scoreCapToChangeLvl[gameManager.currentLvlID];
+        StartLevel();
+    }
+    void StartLevel()
+    {
+        foreach (Transform child in StickerStack.transform) {
+            GameObject.Destroy(child.gameObject);
+        }
         affichesUndone = new List<GameObject>(maxAffiche);
         affichesDone = new List<GameObject>(maxAffiche);
-        gameManager = GameManager.Instance;
 
         spawnZone = spawnPoint.GetComponent<BoxCollider2D>();
 
@@ -40,7 +57,7 @@ public class Stacks : MonoBehaviour
         {
             // Sélectionner une affiche aléatoire parmi les préfabriqués
             GameObject affichePrefab = affichesPrefabs[Random.Range(0, affichesPrefabs.Length)];
-            affichePrefab.GetComponent<SpriteRenderer>().sortingOrder = maxAffiche - i -    1;
+            affichePrefab.GetComponent<SpriteRenderer>().sortingOrder = maxAffiche - i - 1;
             SpawnStickersForAffiche(affichePrefab);
             
             GameObject instance = Instantiate(affichePrefab, transform.position, Quaternion.identity);
@@ -48,7 +65,6 @@ public class Stacks : MonoBehaviour
             affichesUndone.Add(instance);
         }
         currentAffiche = affichesUndone[0];
-        //currentAffiche.GetComponent<SpriteRenderer>().sortingOrder = 1;
         ChangeRemainingAfficheText();
     }
 
@@ -84,6 +100,14 @@ public class Stacks : MonoBehaviour
     {
         yield return new WaitForSeconds(_timer);
         StickerStack.active = false;
+        foreach (GameObject affiche in affichesDone)
+        {
+            Affiche afficheScript = affiche.GetComponent<Affiche>();
+            if (afficheScript != null)
+            {
+                gameManager.score += afficheScript.score; // Ajouter le score de l'affiche au score global
+            }
+        }
         ConfigurationUI.StartCommentary();
     }
 

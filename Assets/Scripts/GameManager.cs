@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
 
     public GameState _state = GameState.IsPlaying;
     public float volume = -1f;
+    public int currentLvlID = 0;
+    public int[] scoreCapToChangeLvl = new int[] { 40, 45, 50, 55, 60 };
     public int score = 0;
     private string previousLoadedScene = null;
 
