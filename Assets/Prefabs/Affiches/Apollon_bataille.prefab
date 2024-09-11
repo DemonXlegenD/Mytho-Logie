@@ -379,6 +379,7 @@ MonoBehaviour:
   - {fileID: 3669921976156452316, guid: d6351ddcbba237941bdfbc6a435dac82, type: 3}
   - {fileID: 3669921976156452316, guid: 5027edb572a0f0f498b935cf5e092a50, type: 3}
   stockPosition: {x: 15, y: 0}
+  score: 0
 --- !u!114 &4210593224032555862
 MonoBehaviour:
   m_ObjectHideFlags: 0
