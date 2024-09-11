@@ -99,7 +99,7 @@ public class Stacks : MonoBehaviour
     private IEnumerator EndGame(float _timer)
     {
         yield return new WaitForSeconds(_timer);
-        StickerStack.active = false;
+        StickerStack.SetActive(false);
         foreach (GameObject affiche in affichesDone)
         {
             Affiche afficheScript = affiche.GetComponent<Affiche>();
