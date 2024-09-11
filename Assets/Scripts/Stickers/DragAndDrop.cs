@@ -7,7 +7,7 @@ public class DragAndDrop : MonoBehaviour
     private Vector3 offset;
     private SpriteRenderer spriteRenderer;
     private static int sortingOrder = 10;
-    private bool isDragging = false;
+    public bool isDragging = false;
     private string stickerText = ""; // Le texte du sticker
     private bool isEditingText = false;
 
