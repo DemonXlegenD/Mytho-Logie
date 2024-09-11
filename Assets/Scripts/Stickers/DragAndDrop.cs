@@ -45,11 +45,11 @@ public class DragAndDrop : MonoBehaviour
             float scroll = Input.GetAxis("Mouse ScrollWheel");
             if (scroll != 0f)
             {
-                totalScroll = Mathf.Clamp(totalScroll + scroll, -1, 1);
+                totalScroll = Mathf.Clamp(totalScroll + scroll, 0, 1);
 
                 if (totalScroll != 0 && totalScroll != 1)
                 {
-                    Vector3 newScale = transform.localScale + Vector3.one * scroll * scaleSpeed;
+                    Vector3 newScale = transform.localScale + Vector3.one * 2 * scroll * scaleSpeed;
                     newScale.x = Mathf.Max(0.1f, newScale.x); // Empêcher la taille négative
                     newScale.y = Mathf.Max(0.1f, newScale.y);
                     transform.localScale = newScale;
