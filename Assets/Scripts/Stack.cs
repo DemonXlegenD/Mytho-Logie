@@ -6,12 +6,12 @@ using UnityEngine;
 
 public class Stacks : MonoBehaviour
 {
-    // SerializeField
-    //[SerializeField] private int indexActualAffiche = 0;
+    [SerializeField] private int indexActualAffiche = 0;
     [SerializeField] private GameObject[] affichesPrefabs; // Liste des préfabriqués d'affiches
     [SerializeField] private Interactable buttonNextAffiche;
 
     [SerializeField] private GameObject currentAffiche;
+    [SerializeField] private GameObject nextAffiche;
     private List<GameObject> affichesUndone;
     private List<GameObject> affichesDone;
     [SerializeField] private TextMeshProTextBlock remainingAffiche;
@@ -31,6 +31,7 @@ public class Stacks : MonoBehaviour
 
     void Start()
     {
+        indexActualAffiche = 0;
         gameManager = GameManager.Instance;
         currentLvlMinScore = gameManager.scoreCapToChangeLvl[gameManager.currentLvlID];
         StartLevel();
@@ -61,10 +62,18 @@ public class Stacks : MonoBehaviour
             SpawnStickersForAffiche(affichePrefab);
             
             GameObject instance = Instantiate(affichePrefab, transform.position, Quaternion.identity);
-
+            instance.transform.SetParent(transform, false);
+            instance.transform.localScale = Vector3.one * 18;
             affichesUndone.Add(instance);
         }
-        currentAffiche = affichesUndone[0];
+        currentAffiche = affichesUndone[indexActualAffiche];
+
+        nextAffiche = affichesUndone[indexActualAffiche + 1];
+        Affiche current = currentAffiche.GetComponent<Affiche>();
+        Affiche next = nextAffiche.GetComponent<Affiche>();
+        current.SetIsMainAffiche(true);
+        next.SetIsMainAffiche(false);
+        current.SetMainOrder();
         ChangeRemainingAfficheText();
     }
 
@@ -75,23 +84,28 @@ public class Stacks : MonoBehaviour
 
     public void NextAffiche()
     {
-        Debug.Log(currentAffiche);
-        currentAffiche.GetComponent<Affiche>().Next();
+        indexActualAffiche = (indexActualAffiche + 1) % maxAffiche;
+        currentAffiche.GetComponent<Affiche>().GoToRight();
+        nextAffiche.GetComponent<Affiche>().GoToLeft();
 
-        affichesDone.Add(currentAffiche);
-        affichesUndone.Remove(currentAffiche);
-        
-        ChangeRemainingAfficheText();
-        if (affichesUndone.Count > 0) 
-        {
-            currentAffiche = affichesUndone[0];
-            //currentAffiche.GetComponent<SpriteRenderer>().sortingOrder = 1;
-        }
-        else
-        {
-            buttonNextAffiche.enabled = false;
-            StartCoroutine(EndGame(timeBeforeEnding));
-        }
+        currentAffiche = affichesUndone[indexActualAffiche];
+        nextAffiche = affichesUndone[(indexActualAffiche + 1) % maxAffiche];
+        currentAffiche.GetComponent<Affiche>().SetIsMainAffiche(true);
+        nextAffiche.GetComponent<Affiche>().SetIsMainAffiche(false);
+    }
+
+    private IEnumerator SwitchAffiche()
+    {
+        currentAffiche.gameObject.SetActive(false);
+        yield return null;
+        currentAffiche = affichesUndone[indexActualAffiche];
+        currentAffiche.gameObject.SetActive(true);
+    }
+
+    public void SubmitAffiche()
+    {
+        buttonNextAffiche.enabled = false;
+        StartCoroutine(EndGame(timeBeforeEnding));
     }
 
     public List<GameObject> GetAffiches() { return affichesDone; }
@@ -99,7 +113,7 @@ public class Stacks : MonoBehaviour
     private IEnumerator EndGame(float _timer)
     {
         yield return new WaitForSeconds(_timer);
-        StickerStack.active = false;
+        StickerStack.SetActive(false);
         foreach (GameObject affiche in affichesDone)
         {
             Affiche afficheScript = affiche.GetComponent<Affiche>();
@@ -115,7 +129,7 @@ public class Stacks : MonoBehaviour
     {
         Affiche afficheData = affiche.GetComponent<Affiche>();
         // Vérifier que la liste de stickers n'est pas vide
-        if (afficheData.stickers.Length == 0)
+        if (afficheData.stickers.Count == 0)
         {
             Debug.LogWarning("Aucun sticker associé à cette affiche.");
             return;
@@ -126,7 +140,7 @@ public class Stacks : MonoBehaviour
         for (int i = 0; i < numberOfStickers; i++)
         {
             // Sélectionner un sticker aléatoire parmi ceux associés à l'affiche
-            GameObject stickerPrefab = afficheData.stickers[Random.Range(0, afficheData.stickers.Length)];
+            GameObject stickerPrefab = afficheData.stickers[Random.Range(0, afficheData.stickers.Count)];
 
             Vector2 colliderCenter = spawnZone.offset;
             Vector2 colliderSize = spawnZone.size;
@@ -142,5 +156,11 @@ public class Stacks : MonoBehaviour
             GameObject stickerInstance = Instantiate(stickerPrefab, spawnPosition, Quaternion.identity);
             stickerInstance.transform.SetParent(StickerStack.transform);
         }
+    }
+
+
+    private void SwitchAnimation()
+    {
+
     }
 }

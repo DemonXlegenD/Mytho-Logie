@@ -8,7 +8,7 @@ public class DragAndDrop : MonoBehaviour
     //private float zCoord = 0;
     private SpriteRenderer spriteRenderer;
     private static int sortingOrder = 10;
-    private bool isDragging = false;
+    public bool isDragging = false;
 
     [SerializeField] private Texture2D cursorTextureHover;
     [SerializeField] private Texture2D cursorTextureClic;
@@ -69,6 +69,7 @@ public class DragAndDrop : MonoBehaviour
     {
         if (!isDragging)
         {
+            Debug.Log("Enter Sticker");
             // Changement du curseur quand la souris survole l'objet
             Cursor.SetCursor(cursorTextureHover, hotSpot, cursorMode);
         }
@@ -92,8 +93,7 @@ public class DragAndDrop : MonoBehaviour
         //zCoord = Camera.main.WorldToScreenPoint(transform.position).z;
         offset = transform.position - GetMouseWorldPos();
 
-        // Augmentation de l'ordre de tri pour mettre l'objet au-dessus des autres quand il est sélectionné
-        spriteRenderer.sortingOrder = sortingOrder++;
+    
 
         isDragging = true;
     }
