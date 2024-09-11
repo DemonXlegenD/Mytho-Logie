@@ -21,7 +21,6 @@ public class Stacks : MonoBehaviour
 
     [SerializeField] private ConfigurationUI ConfigurationUI;
     // Start is called before the first frame update
-    [SerializeField] private float timeBeforeEnding = 5f;
     [SerializeField] private GameObject spawnPoint; // Point d'apparition
 
     // Private var
@@ -34,17 +33,21 @@ public class Stacks : MonoBehaviour
         affichesDone = new List<GameObject>(maxAffiche);
         gameManager = GameManager.Instance;
 
+        spawnZone = spawnPoint.GetComponent<BoxCollider2D>();
+
         for (int i = 0; i < maxAffiche; i++)
         {
             // Sélectionner une affiche aléatoire parmi les préfabriqués
             GameObject affichePrefab = affichesPrefabs[Random.Range(0, affichesPrefabs.Length)];
+            affichePrefab.GetComponent<SpriteRenderer>().sortingOrder = maxAffiche - i -    1;
             SpawnStickersForAffiche(affichePrefab);
+            
             GameObject instance = Instantiate(affichePrefab, transform.position, Quaternion.identity);
 
             affichesUndone.Add(instance);
         }
         currentAffiche = affichesUndone[0];
-        currentAffiche.GetComponent<SpriteRenderer>().sortingOrder = 1;
+        //currentAffiche.GetComponent<SpriteRenderer>().sortingOrder = 1;
         ChangeRemainingAfficheText();
     }
 
@@ -56,12 +59,17 @@ public class Stacks : MonoBehaviour
     public void NextAffiche()
     {
         Debug.Log(currentAffiche);
-        currentAffiche.GetComponent<DragAndDrop>().Next();
+        currentAffiche.GetComponent<Affiche>().Next();
+
         affichesDone.Add(currentAffiche);
-        currentAffiche.GetComponent<SpriteRenderer>().sortingOrder = 1;
         affichesUndone.Remove(currentAffiche);
+        
         ChangeRemainingAfficheText();
-        if (affichesUndone.Count > 0) currentAffiche = affichesUndone[0];
+        if (affichesUndone.Count > 0) 
+        {
+            currentAffiche = affichesUndone[0];
+            //currentAffiche.GetComponent<SpriteRenderer>().sortingOrder = 1;
+        }
         else
         {
             buttonNextAffiche.enabled = false;
@@ -69,16 +77,7 @@ public class Stacks : MonoBehaviour
         }
     }
 
-
-    private IEnumerator EndGame(float _timer)
-    {
-        yield return new WaitForSeconds(_timer);
-
-        ConfigurationUI.StartCommentary();
-    }
-
     public List<GameObject> GetAffiches() { return affichesDone; }
-
 
     private IEnumerator EndGame(float _timer)
     {
@@ -116,6 +115,5 @@ public class Stacks : MonoBehaviour
             // Instancier le sticker
             GameObject stickerInstance = Instantiate(stickerPrefab, spawnPosition, Quaternion.identity);
         }
-
     }
 }

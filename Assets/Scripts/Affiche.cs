@@ -13,11 +13,14 @@ public class Affiche : MonoBehaviour
     [SerializeField] private Vector2 stockPosition = new Vector2(20, 0);
     bool isNext = false;
     bool detect_sticker = true;
+    bool validated_mov = false;
 
     void Start()
     {
+        Vector3 position = transform.position;
+        position.z = 0f;
+        transform.position = position;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sortingOrder = 0;
     }
 
     void AttachStickers()
@@ -146,6 +149,7 @@ public class Affiche : MonoBehaviour
             {
                 transform.position = stockPosition; // S'assurer que l'objet est exactement à la position finale
                 isNext = false; // Arrêter le mouvement
+                validated_mov = true;
             }
         }
     }
