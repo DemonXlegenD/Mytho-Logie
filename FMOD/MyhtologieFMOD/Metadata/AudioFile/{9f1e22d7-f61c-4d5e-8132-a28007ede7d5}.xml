@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{5128fc53-f31a-4553-b3a0-6f510800e2b4}">
+	<object class="AudioFile" id="{9f1e22d7-f61c-4d5e-8132-a28007ede7d5}">
 		<property name="assetPath">
-			<value>AUDIO/Timer_end.wav</value>
+			<value>AUDIO/Dialogue_popup2.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
@@ -11,7 +11,7 @@
 			<value>1</value>
 		</property>
 		<property name="length">
-			<value>1.1213124999999999</value>
+			<value>0.10877083333333333</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{10b74d5f-fefe-4528-a8a1-d7e9df6ae38e}</destination>

@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{1b2bd4e0-145a-40a1-ad33-2fa0dccbdedd}">
+	<object class="AudioFile" id="{0f997fc4-12d3-4a27-913b-b5b85f55ec3a}">
 		<property name="assetPath">
-			<value>AUDIO/AMB_Level_loop.wav</value>
-		</property>
-		<property name="isStreaming">
-			<value>true</value>
+			<value>AUDIO/Dialogue_popup1.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
 		</property>
 		<property name="channelCount">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<property name="length">
-			<value>101.5</value>
+			<value>0.11964583333333334</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{10b74d5f-fefe-4528-a8a1-d7e9df6ae38e}</destination>
