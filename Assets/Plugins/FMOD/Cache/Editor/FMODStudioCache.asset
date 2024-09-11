@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6334299598522519467
+--- !u!114 &-8371850773400094753
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -18,7 +18,68 @@ MonoBehaviour:
   lastModified: 638616476496042906
   FileSizes: []
   Exists: 1
---- !u!114 &-5218262999062501742
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: 8059602732934330174}
+  - {fileID: 7296744986374848819}
+  - {fileID: 3031796695068278695}
+  - {fileID: -8371850773400094753}
+  EditorEvents: []
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: 3031796695068278695}
+  StringsBanks:
+  - {fileID: 8059602732934330174}
+  cacheTime: 638616476496042906
+  cacheVersion: 131619
+--- !u!114 &3031796695068278695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMODAssets/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638616476496042906
+  FileSizes: []
+  Exists: 1
+--- !u!114 &7296744986374848819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/LEVEL.bank
+  m_EditorClassIdentifier: 
+  Path: FMODAssets/Desktop/LEVEL.bank
+  Name: LEVEL
+  StudioPath: bank:/LEVEL
+  lastModified: 638616476496032909
+  FileSizes: []
+  Exists: 1
+--- !u!114 &8059602732934330174
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -38,64 +99,3 @@ MonoBehaviour:
   - Name: 
     Value: 1076
   Exists: 1
---- !u!114 &-2948639551097793963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/LEVEL.bank
-  m_EditorClassIdentifier: 
-  Path: FMODAssets/Desktop/LEVEL.bank
-  Name: LEVEL
-  StudioPath: bank:/LEVEL
-  lastModified: 638616476496032909
-  FileSizes: []
-  Exists: 1
---- !u!114 &-1333683374379620137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: FMODAssets/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 638616476496042906
-  FileSizes: []
-  Exists: 1
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
-  m_Name: FMODStudioCache
-  m_EditorClassIdentifier: 
-  EditorBanks:
-  - {fileID: -5218262999062501742}
-  - {fileID: -1333683374379620137}
-  - {fileID: -2948639551097793963}
-  - {fileID: -6334299598522519467}
-  EditorEvents: []
-  EditorParameters: []
-  MasterBanks:
-  - {fileID: -1333683374379620137}
-  StringsBanks:
-  - {fileID: -5218262999062501742}
-  cacheTime: 638616476496042906
-  cacheVersion: 131619
