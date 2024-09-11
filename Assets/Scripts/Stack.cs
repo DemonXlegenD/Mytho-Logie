@@ -22,6 +22,7 @@ public class Stacks : MonoBehaviour
     [SerializeField] private ConfigurationUI ConfigurationUI;
     // Start is called before the first frame update
     [SerializeField] private GameObject spawnPoint; // Point d'apparition
+    [SerializeField] private GameObject StickerStack;
 
     // Private var
     private GameManager gameManager;
@@ -82,6 +83,7 @@ public class Stacks : MonoBehaviour
     private IEnumerator EndGame(float _timer)
     {
         yield return new WaitForSeconds(_timer);
+        StickerStack.active = false;
         ConfigurationUI.StartCommentary();
     }
 
@@ -114,6 +116,7 @@ public class Stacks : MonoBehaviour
 
             // Instancier le sticker
             GameObject stickerInstance = Instantiate(stickerPrefab, spawnPosition, Quaternion.identity);
+            stickerInstance.transform.SetParent(StickerStack.transform);
         }
     }
 }

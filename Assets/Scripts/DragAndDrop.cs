@@ -5,7 +5,7 @@ using UnityEngine;
 public class DragAndDrop : MonoBehaviour
 {
     private Vector3 offset;
-    private float zCoord = 0;
+    //private float zCoord = 0;
     private SpriteRenderer spriteRenderer;
     private static int sortingOrder = 10;
     private bool isDragging = false;
@@ -16,6 +16,10 @@ public class DragAndDrop : MonoBehaviour
     // Variables de configuration pour le curseur
     public CursorMode cursorMode = CursorMode.Auto;
     public Vector2 hotSpot = Vector2.zero;
+    public float scaleSpeed = 0.1f; // Vitesse de mise à l'échelle
+    public float rotationSpeed = 150f; // Vitesse de rotation
+    private Camera mainCamera;
+    private float totalScroll = 0;
 
     void Start()
     {
@@ -26,22 +30,36 @@ public class DragAndDrop : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         // Initialisation de l'ordre de tri (sorting order) pour gérer la superposition des objets
         spriteRenderer.sortingOrder = sortingOrder;
+        mainCamera = Camera.main;
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // Si clic gauche
-        {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Collider2D hitCollider = Physics2D.OverlapPoint(mousePos);
+        Vector2 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
-            if (hitCollider != null)
+        // Vérifier si la souris survole l'objet
+        RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
+        if (hit.collider != null && hit.collider.gameObject == gameObject)
+        {
+            // Redimensionnement avec la molette de la souris
+            float scroll = Input.GetAxis("Mouse ScrollWheel");
+            if (scroll != 0f)
             {
-                Debug.Log("Object hit by Raycast: " + hitCollider.gameObject.name);
+                totalScroll = Mathf.Clamp(totalScroll + scroll, -1, 1);
+
+                if (totalScroll != 0 && totalScroll != 1)
+                {
+                    Vector3 newScale = transform.localScale + Vector3.one * scroll * scaleSpeed;
+                    newScale.x = Mathf.Max(0.1f, newScale.x); // Empêcher la taille négative
+                    newScale.y = Mathf.Max(0.1f, newScale.y);
+                    transform.localScale = newScale;
+                }
             }
-            else
+
+            // Rotation en maintenant le clic droit
+            if (Input.GetMouseButton(1)) // Bouton droit de la souris
             {
-                Debug.LogWarning("No object hit by Raycast at position: " + mousePos);
+                transform.Rotate(Vector3.forward, -rotationSpeed * Time.deltaTime);
             }
         }
     }
@@ -50,7 +68,7 @@ public class DragAndDrop : MonoBehaviour
     void OnMouseEnter()
     {
         Debug.Log(isDragging);
-        if (!isDragging) 
+        if (!isDragging)
         {
             // Changement du curseur quand la souris survole l'objet
             Cursor.SetCursor(cursorTextureHover, hotSpot, cursorMode);
@@ -60,7 +78,7 @@ public class DragAndDrop : MonoBehaviour
     void OnMouseExit()
     {
         Debug.Log(isDragging);
-        if (!isDragging) 
+        if (!isDragging)
         {
             // Réinitialisation du curseur quand la souris quitte l'objet
             Cursor.SetCursor(null, Vector2.zero, cursorMode);
