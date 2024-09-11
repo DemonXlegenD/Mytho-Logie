@@ -22,12 +22,7 @@ public class Jauge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(timer > modifyValuePerTimer)
-        {
-            AddToValue(-5f);
-            timer = 0f;
-        }
-        timer += Time.deltaTime;
+        AddToValue(GameManager.Instance.score);
     }
 
     public void ChangeValue()
