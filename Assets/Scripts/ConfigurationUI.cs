@@ -9,6 +9,7 @@ public class ConfigurationUI : MonoBehaviour
     [SerializeField] private UIBlock2D PanelWin;
     [SerializeField] private UIBlock2D PanelLose;
     [SerializeField] private UIBlock2D PanelCommentary;
+    [SerializeField] private UIBlock2D PanelScreenshot;
 
     private void Start()
     {
@@ -16,6 +17,7 @@ public class ConfigurationUI : MonoBehaviour
         PanelWin.gameObject.SetActive(false);
         PanelCommentary.gameObject.SetActive(false);
         PanelLose.gameObject.SetActive(false);
+        PanelScreenshot.gameObject.SetActive(false);
     }
 
     public void StartCommentary()
@@ -23,6 +25,7 @@ public class ConfigurationUI : MonoBehaviour
         uiGame.gameObject.SetActive(false);
         PanelWin.gameObject.SetActive(false);
         PanelLose.gameObject.SetActive(false);
+        PanelScreenshot.gameObject.SetActive(false);
         StartCoroutine(ActivateAndCallFunction(PanelCommentary.gameObject));
     }
 
@@ -33,12 +36,38 @@ public class ConfigurationUI : MonoBehaviour
         obj.GetComponent<PanelCommentary>().ShowAffiche();
     }
 
+    public void StartScreenshotOne() 
+    {
+        PanelScreenshot.GetComponent<PanelScreenshot>().afficheID = 0;
+        StartScreenshot();
+    }
+    public void StartScreenshotTwo() 
+    {
+        PanelScreenshot.GetComponent<PanelScreenshot>().afficheID = 1;
+        StartScreenshot();
+    }
+    public void StartScreenshot()
+    {
+        uiGame.gameObject.SetActive(false);
+        PanelWin.gameObject.SetActive(false);
+        PanelLose.gameObject.SetActive(false);
+        PanelCommentary.gameObject.SetActive(false);
+        StartCoroutine(ActivateAndCallFunctionScreenshot(PanelScreenshot.gameObject));
+    }
+
+    IEnumerator ActivateAndCallFunctionScreenshot(GameObject obj)
+    {
+        obj.SetActive(true);
+        yield return null; // Attend une frame
+        obj.GetComponent<PanelScreenshot>().ShowAffiche();
+    }
 
     public void StartPanelWin()
     {
         uiGame.gameObject.SetActive(false);
         PanelCommentary.gameObject.SetActive(false);
         PanelLose.gameObject.SetActive(false);
+        PanelScreenshot.gameObject.SetActive(false);
         PanelWin.gameObject.SetActive(true);
     }
 
@@ -47,6 +76,7 @@ public class ConfigurationUI : MonoBehaviour
         uiGame.gameObject.SetActive(false);
         PanelCommentary.gameObject.SetActive(false);
         PanelWin.gameObject.SetActive(false);
+        PanelScreenshot.gameObject.SetActive(false);
         PanelLose.gameObject.SetActive(true);
     }
 
