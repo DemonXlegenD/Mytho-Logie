@@ -10,6 +10,7 @@ public class ConfigurationUI : MonoBehaviour
     [SerializeField] private UIBlock2D PanelLose;
     [SerializeField] private UIBlock2D PanelCommentary;
     [SerializeField] private UIBlock2D PanelScreenshot;
+    [SerializeField] private GameObject screenshotButton;
 
     private void Start()
     {
@@ -87,5 +88,10 @@ public class ConfigurationUI : MonoBehaviour
     public void OnRetry()
     {
         GameManager.Instance.StartGame();
+    }
+
+    public void TakeScreenShot() 
+    {
+        ScreenCapture.CaptureScreenshot("screenshot.png");
     }
 }

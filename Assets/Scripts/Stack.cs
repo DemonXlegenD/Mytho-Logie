@@ -140,7 +140,7 @@ public class Stacks : MonoBehaviour
             return;
         }
 
-        int numberOfStickers = Random.Range(3, 6); // Nombre de stickers à instancier aléatoirement
+        int numberOfStickers = Random.Range(14, 17); // Nombre de stickers à instancier aléatoirement
 
         for (int i = 0; i < numberOfStickers; i++)
         {

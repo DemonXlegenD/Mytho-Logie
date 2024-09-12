@@ -7,14 +7,12 @@ public class PanelScreenshot : MonoBehaviour
 {
     [SerializeField] private UIBlock2D Panel;
     [SerializeField] private UIBlock2D OneAffiche;
-    [SerializeField] private GameObject background;
     [SerializeField] private Stacks stacks;
 
     public int afficheID = 0;
     private void Start()
     {
         Panel.gameObject.SetActive(false);
-        background.SetActive(false);
         OneAffiche.gameObject.SetActive(false);
     }
 
@@ -39,7 +37,6 @@ public class PanelScreenshot : MonoBehaviour
         
         //Debug.Log(afficheBlock.name);
         Panel.gameObject.SetActive(true);
-        background.SetActive(true);
         afficheBlock.gameObject.SetActive(true);
     }
 }
