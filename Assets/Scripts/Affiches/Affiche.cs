@@ -225,14 +225,14 @@ public class Affiche : MonoBehaviour
         {
             if (!isFirstAnimation) {
                 foreach (Transform child in transform)
+                {
+                    if (child.CompareTag("Sticker"))
                     {
-                        if (child.CompareTag("Sticker"))
-                        {
-                            if (child.GetComponent<DragAndDrop>().isTextSticker) {
-                                child.gameObject.SetActive(false);
-                            }
+                        if (child.GetComponent<DragAndDrop>().isTextSticker) {
+                            child.gameObject.SetActive(false);
                         }
                     }
+                }
             }
 
             // Calculer le temps écoulé

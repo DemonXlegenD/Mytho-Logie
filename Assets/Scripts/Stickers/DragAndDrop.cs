@@ -25,9 +25,6 @@ public class DragAndDrop : MonoBehaviour
 
     void Start()
     {
-        Vector3 position = transform.position;
-        position.z = 0f;
-        transform.position = position;
         isDragging = false;
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sortingOrder = sortingOrder;
@@ -36,6 +33,7 @@ public class DragAndDrop : MonoBehaviour
 
     void Update()
     {
+        
         if (isTextSticker && isEditingText)
         {
             // Ajouter du texte avec les touches clavier
