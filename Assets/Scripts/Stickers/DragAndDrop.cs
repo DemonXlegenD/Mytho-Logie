@@ -33,7 +33,6 @@ public class DragAndDrop : MonoBehaviour
 
     void Update()
     {
-        
         if (isTextSticker && isEditingText)
         {
             // Ajouter du texte avec les touches clavier
@@ -63,7 +62,6 @@ public class DragAndDrop : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
         if (hit.collider != null && hit.collider.gameObject == gameObject)
         {
-            //Debug.Log("HAAAN");
             // Redimensionnement avec la molette de la souris
             float scroll = Input.GetAxis("Mouse ScrollWheel");
             if (scroll != 0f)
@@ -84,8 +82,17 @@ public class DragAndDrop : MonoBehaviour
             {
                 transform.Rotate(Vector3.forward, -rotationSpeed * Time.deltaTime);
             }
+
+            // Flip horizontal avec le clic de la molette
+            if (Input.GetMouseButtonDown(2)) // Bouton de la molette
+            {
+                Vector3 currentScale = transform.localScale;
+                currentScale.x *= -1; // Inverser l'échelle X pour un flip horizontal
+                transform.localScale = currentScale;
+            }
         }
     }
+
 
     void OnMouseEnter()
     {
