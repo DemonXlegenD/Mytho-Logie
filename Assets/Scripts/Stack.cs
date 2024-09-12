@@ -29,8 +29,8 @@ public class Stacks : MonoBehaviour
     private BoxCollider2D spawnZone; // BoxCollider définissant la zone de spawn
     private int currentLvlMinScore;
     public bool endedGame = false;
-
-    private string selectedThemeName; // Stocke le nom du thème sélectionné
+    public string selectedThemeName; // Stocke le nom du thème sélectionné
+    
     [System.Serializable]
     public class Theme
     {
@@ -94,6 +94,7 @@ public class Stacks : MonoBehaviour
             Debug.LogWarning("Aucun thème disponible dans la liste.");
             return;
         }
+        ThemeLoadPoint.SetActive(true);
 
         // Sélectionner un thème aléatoire
         Theme selectedTheme = themes[Random.Range(0, themes.Count)];
@@ -151,6 +152,7 @@ public class Stacks : MonoBehaviour
             }
         }
         endedGame = true;
+        ThemeLoadPoint.SetActive(false);
         ConfigurationUI.StartCommentary();
     }
 

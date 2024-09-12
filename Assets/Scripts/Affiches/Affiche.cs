@@ -168,8 +168,31 @@ public class Affiche : MonoBehaviour
     {
         string filePath = "Assets/DataBase/ScoreDataBase.csv";
         int results = 0;
-        themeName = themeName.Replace("(Clone)", "") + "_Positif";
+        string theme_de_affiche = "";
 
+        string selectedThemeName_ = transform.parent.GetComponent<Stacks>().selectedThemeName;
+        bool neg = (selectedThemeName_ == "ArtemisGood" && themeName.Contains("Apollon")) // Demande d'apo : Flatter apollon            -> negatif
+                || (selectedThemeName_ == "ApollonGood" && themeName.Contains("Arthemis")) // Demande d'apo : Cracher sur Arthemis      -> negatif
+                || (selectedThemeName_ == "AppollonBad" && themeName.Contains("Apollon")) // Demande d'Arthemis : Cracher sur apollon   -> negatif
+                || (selectedThemeName_ == "ArtemisBad" && themeName.Contains("Arthemis")); // Demande d'apo : Cracher sur arthemis      -> negatif
+
+        bool pos = (selectedThemeName_ == "AppollonBad" && themeName.Contains("Arthemis")) // Demande d'arthemis : flatter arthemis     -> positif
+                || (selectedThemeName_ == "ArtemisBad" && themeName.Contains("Apollon")) // Demande d'apollon : flatter apollon         -> positif
+                || (selectedThemeName_ == "ArtemisGood" && themeName.Contains("Arthemis")) // Demande d'arthemis : flatter arthemis     -> positif
+                || (selectedThemeName_ == "ApollonGood" && themeName.Contains("Apollon")); // Demande d'apollon : flatter apollon       -> positif
+
+        if (pos)
+        {
+            theme_de_affiche = "Positif";
+        } else if (neg)
+        {
+            theme_de_affiche = "Negatif";
+        } else 
+        {
+            theme_de_affiche = "Positif";
+        }
+
+        themeName = themeName.Replace("(Clone)", "") + "_" + theme_de_affiche;
         using (StreamReader sr = new StreamReader(filePath))
         {
             string headerLine = sr.ReadLine(); // Lire l'entête

@@ -2218,7 +2218,7 @@ Transform:
   m_GameObject: {fileID: 539301498}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.6, y: 3.8, z: 0}
+  m_LocalPosition: {x: -1.56, y: 3.87, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -4946,11 +4946,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 560701303489305045, guid: 7ae6a708d46abf349a4d968b1335cb6e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -37
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 560701303489305045, guid: 7ae6a708d46abf349a4d968b1335cb6e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 50
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 560701303489305045, guid: 7ae6a708d46abf349a4d968b1335cb6e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4966,11 +4966,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1095716620840811174, guid: 7ae6a708d46abf349a4d968b1335cb6e, type: 3}
       propertyPath: themes.Array.data[0].name
-      value: AppllonBad
+      value: AppollonBad
       objectReference: {fileID: 0}
     - target: {fileID: 1095716620840811174, guid: 7ae6a708d46abf349a4d968b1335cb6e, type: 3}
       propertyPath: themes.Array.data[1].name
-      value: AppllonGood
+      value: AppollonGood
       objectReference: {fileID: 0}
     - target: {fileID: 1095716620840811174, guid: 7ae6a708d46abf349a4d968b1335cb6e, type: 3}
       propertyPath: themes.Array.data[2].name
