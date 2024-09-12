@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 7233220898994325953}
   - component: {fileID: 4210593224032555862}
   m_Layer: 0
-  m_Name: Apollon_tourisme
+  m_Name: Apollon_Tourisme
   m_TagString: Affiche
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
