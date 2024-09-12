@@ -107,7 +107,6 @@ GameObject:
   - component: {fileID: -145512788992285051}
   - component: {fileID: 7233220898994325953}
   - component: {fileID: 4210593224032555862}
-  - component: {fileID: 6386372541458336612}
   m_Layer: 0
   m_Name: Artemis_bebe
   m_TagString: Affiche
@@ -297,20 +296,6 @@ MonoBehaviour:
   - {fileID: 367715406945746124}
   - {fileID: 44922798166475003}
   - {fileID: 6879809626514119045}
---- !u!114 &6386372541458336612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3669921976156452316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e8c171fc62924c498f621ac06709dcb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: 21300000, guid: 47cd48ca441efc54b9883ab6f07258ee, type: 3}
 --- !u!1 &6879809626514119045
 GameObject:
   m_ObjectHideFlags: 0
