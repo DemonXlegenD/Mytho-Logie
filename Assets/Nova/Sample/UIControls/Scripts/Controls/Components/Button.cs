@@ -24,7 +24,7 @@ namespace NovaSamples.UIControls
             View.UIBlock.AddGestureHandler<Gesture.OnHover, ButtonVisuals>((evt, visuals) => HandleGesture(evt, visuals, ButtonVisuals.HandleHovered, OnHover));
             View.UIBlock.AddGestureHandler<Gesture.OnUnhover, ButtonVisuals>((evt, visuals) => HandleGesture(evt, visuals, ButtonVisuals.HandleUnhovered, OnUnhover));
             View.UIBlock.AddGestureHandler<Gesture.OnPress, ButtonVisuals>((evt, visuals) => HandleGesture(evt, visuals, ButtonVisuals.HandlePressed, OnPress));
-            View.UIBlock.AddGestureHandler<Gesture.OnRelease, ButtonVisuals>((evt, visuals) => HandleGesture(evt, visuals, ButtonVisuals.HandleReleased, OnRelease));
+            View.UIBlock.AddGestureHandler<Gesture.OnRelease, ButtonVisuals>((evt, visuals) => HandleGesture(evt, visuals, OnRelease));
         }
 
         private void OnDisable()
@@ -33,7 +33,7 @@ namespace NovaSamples.UIControls
             View.UIBlock.RemoveGestureHandler<Gesture.OnHover, ButtonVisuals>((evt, visuals) => HandleGesture(evt, visuals, ButtonVisuals.HandleHovered, OnHover));
             View.UIBlock.RemoveGestureHandler<Gesture.OnUnhover, ButtonVisuals>((evt, visuals) => HandleGesture(evt, visuals, ButtonVisuals.HandleUnhovered, OnUnhover));
             View.UIBlock.RemoveGestureHandler<Gesture.OnPress, ButtonVisuals>((evt, visuals) => HandleGesture(evt, visuals, ButtonVisuals.HandlePressed, OnPress));
-            View.UIBlock.RemoveGestureHandler<Gesture.OnRelease, ButtonVisuals>((evt, visuals) => HandleGesture(evt, visuals, ButtonVisuals.HandleReleased, OnRelease));
+            View.UIBlock.RemoveGestureHandler<Gesture.OnRelease, ButtonVisuals>((evt, visuals) => HandleGesture(evt, visuals, OnRelease));
         }
 
         /// <summary>
