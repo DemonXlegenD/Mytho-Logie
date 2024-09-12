@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{c0c402df-ce31-4617-8c58-04d01dd97272}">
+	<object class="AudioFile" id="{aa290adb-f68f-4889-a2dc-5fa064b66c89}">
 		<property name="assetPath">
-			<value>AUDIO/Poster_switch_4.wav</value>
+			<value>AUDIO/Poster_switch_6.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
@@ -11,7 +11,7 @@
 			<value>1</value>
 		</property>
 		<property name="length">
-			<value>0.60345833333333332</value>
+			<value>0.6313333333333333</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{10b74d5f-fefe-4528-a8a1-d7e9df6ae38e}</destination>
