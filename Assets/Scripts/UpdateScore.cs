@@ -18,7 +18,11 @@ public class UpdateScore : MonoBehaviour
         {
             textMeshPro = gameObject.AddComponent<TextMeshPro>();
         }
+    }
 
+    // Update is called once per frame
+    void Update()
+    {
         if (total) 
         {
             textMeshPro.text = (stack.gameManager.score).ToString();
@@ -27,5 +31,6 @@ public class UpdateScore : MonoBehaviour
             textMeshPro.text = afficheScript.score.ToString();
             
         }
+        
     }
 }
