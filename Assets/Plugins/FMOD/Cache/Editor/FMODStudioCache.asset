@@ -81,6 +81,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 257
+--- !u!114 &-7785854796237034558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/EndingScreen
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/EndingScreen
+  Guid:
+    Data1: 1639312165
+    Data2: 1245282691
+    Data3: 1162163646
+    Data4: -1218896677
+  Banks:
+  - {fileID: 5859397331747114622}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4127
 --- !u!114 &-7282208270419924627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,34 +134,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
---- !u!114 &-5280068079397023236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Dialogue_box
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Dialogue_box
-  Guid:
-    Data1: 833484561
-    Data2: 1184935201
-    Data3: -1186356066
-    Data4: 1978517357
-  Banks:
-  - {fileID: 5859397331747114622}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 125
+  Length: 131
 --- !u!114 &-5218262999062501742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,10 +150,10 @@ MonoBehaviour:
   Path: FMODAssets/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638617384960012989
+  lastModified: 638617578516310774
   FileSizes:
   - Name: 
-    Value: 1386
+    Value: 1422
   Exists: 1
 --- !u!114 &-3606098487915169822
 MonoBehaviour:
@@ -182,6 +182,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 656
+--- !u!114 &-3192174997863210214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/UI_hold
+  m_EditorClassIdentifier: 
+  Path: event:/UI/UI_hold
+  Guid:
+    Data1: -876822293
+    Data2: 1176594289
+    Data3: 1350903697
+    Data4: 834210817
+  Banks:
+  - {fileID: 7269711012518574885}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1043
 --- !u!114 &-1333683374379620137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,7 +224,7 @@ MonoBehaviour:
   Path: FMODAssets/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638617472376234478
+  lastModified: 638617578516285607
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -220,19 +247,20 @@ MonoBehaviour:
   - {fileID: 7269711012518574885}
   EditorEvents:
   - {fileID: 896844424170148082}
-  - {fileID: -5280068079397023236}
   - {fileID: -8938811165163071049}
   - {fileID: -3606098487915169822}
   - {fileID: -8117869763086458279}
   - {fileID: 8905649666158657424}
   - {fileID: -7282208270419924627}
   - {fileID: -8216067564476933728}
+  - {fileID: -7785854796237034558}
+  - {fileID: -3192174997863210214}
   EditorParameters: []
   MasterBanks:
   - {fileID: -1333683374379620137}
   StringsBanks:
   - {fileID: -5218262999062501742}
-  cacheTime: 638617472376234478
+  cacheTime: 638617578516310774
   cacheVersion: 131619
 --- !u!114 &896844424170148082
 MonoBehaviour:
@@ -276,7 +304,7 @@ MonoBehaviour:
   Path: FMODAssets/Desktop/MENU.bank
   Name: MENU
   StudioPath: bank:/MENU
-  lastModified: 638617472376234478
+  lastModified: 638617570176703045
   FileSizes: []
   Exists: 1
 --- !u!114 &5859397331747114622
@@ -294,7 +322,7 @@ MonoBehaviour:
   Path: FMODAssets/Desktop/LEVEL.bank
   Name: LEVEL
   StudioPath: bank:/LEVEL
-  lastModified: 638617472376218934
+  lastModified: 638617570176289350
   FileSizes: []
   Exists: 1
 --- !u!114 &7269711012518574885
@@ -312,7 +340,7 @@ MonoBehaviour:
   Path: FMODAssets/Desktop/MAIN.bank
   Name: MAIN
   StudioPath: bank:/MAIN
-  lastModified: 638617472376224074
+  lastModified: 638617578516186387
   FileSizes: []
   Exists: 1
 --- !u!114 &8905649666158657424
