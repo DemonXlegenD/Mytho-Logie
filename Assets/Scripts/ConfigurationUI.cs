@@ -7,7 +7,6 @@ public class ConfigurationUI : MonoBehaviour
 {
     [SerializeField] private UIBlock2D uiGame;
     [SerializeField] private UIBlock2D PanelWin;
-    [SerializeField] private UIBlock2D PanelLose;
     [SerializeField] private UIBlock2D PanelCommentary;
     [SerializeField] private UIBlock2D PanelScreenshot;
     [SerializeField] private GameObject screenshotButton;
@@ -17,7 +16,6 @@ public class ConfigurationUI : MonoBehaviour
         uiGame.gameObject.SetActive(true);
         PanelWin.gameObject.SetActive(false);
         PanelCommentary.gameObject.SetActive(false);
-        PanelLose.gameObject.SetActive(false);
         PanelScreenshot.gameObject.SetActive(false);
     }
 
@@ -25,7 +23,6 @@ public class ConfigurationUI : MonoBehaviour
     {
         uiGame.gameObject.SetActive(false);
         PanelWin.gameObject.SetActive(false);
-        PanelLose.gameObject.SetActive(false);
         PanelScreenshot.gameObject.SetActive(false);
         StartCoroutine(ActivateAndCallFunction(PanelCommentary.gameObject));
     }
@@ -51,7 +48,6 @@ public class ConfigurationUI : MonoBehaviour
     {
         uiGame.gameObject.SetActive(false);
         PanelWin.gameObject.SetActive(false);
-        PanelLose.gameObject.SetActive(false);
         PanelCommentary.gameObject.SetActive(false);
         StartCoroutine(ActivateAndCallFunctionScreenshot(PanelScreenshot.gameObject));
     }
@@ -67,7 +63,6 @@ public class ConfigurationUI : MonoBehaviour
     {
         uiGame.gameObject.SetActive(false);
         PanelCommentary.gameObject.SetActive(false);
-        PanelLose.gameObject.SetActive(false);
         PanelScreenshot.gameObject.SetActive(false);
         PanelWin.gameObject.SetActive(true);
     }
@@ -78,7 +73,6 @@ public class ConfigurationUI : MonoBehaviour
         PanelCommentary.gameObject.SetActive(false);
         PanelWin.gameObject.SetActive(false);
         PanelScreenshot.gameObject.SetActive(false);
-        PanelLose.gameObject.SetActive(true);
     }
 
     public void OnMainMenu()
