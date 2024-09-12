@@ -87,5 +87,7 @@ public class ConfigurationUI : MonoBehaviour
     public void TakeScreenShot() 
     {
         ScreenCapture.CaptureScreenshot("screenshot.png");
+
+        StartCommentary();
     }
 }
