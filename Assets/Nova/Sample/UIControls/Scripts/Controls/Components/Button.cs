@@ -14,43 +14,57 @@ namespace NovaSamples.UIControls
 
         public UnityEvent OnPress = null;
         public UnityEvent OnRelease = null;
+
+        public UnityEvent OnHover = null;
+        public UnityEvent OnUnhover = null;
+
         private void OnEnable()
         {
-            if (View.TryGetVisuals(out ButtonVisuals visuals))
-            {
-                // Set default state
-                visuals.UpdateVisualState(VisualState.Default);
-            }
-
-            // Subscribe to desired events
-            View.UIBlock.AddGestureHandler<Gesture.OnClick, ButtonVisuals>(HandleClicked);
-            View.UIBlock.AddGestureHandler<Gesture.OnHover, ButtonVisuals>(ButtonVisuals.HandleHovered);
-            View.UIBlock.AddGestureHandler<Gesture.OnUnhover, ButtonVisuals>(ButtonVisuals.HandleUnhovered);
-            View.UIBlock.AddGestureHandler<Gesture.OnPress, ButtonVisuals>(HandlePress);
-            View.UIBlock.AddGestureHandler<Gesture.OnRelease, ButtonVisuals>(HandleReleased);
-            View.UIBlock.AddGestureHandler<Gesture.OnCancel, ButtonVisuals>(ButtonVisuals.HandlePressCanceled);
+            View.UIBlock.AddGestureHandler<Gesture.OnClick, ButtonVisuals>((evt, visuals) => HandleGesture(evt, visuals, OnClicked));
+            View.UIBlock.AddGestureHandler<Gesture.OnHover, ButtonVisuals>((evt, visuals) => HandleGesture(evt, visuals, ButtonVisuals.HandleHovered, OnHover));
+            View.UIBlock.AddGestureHandler<Gesture.OnUnhover, ButtonVisuals>((evt, visuals) => HandleGesture(evt, visuals, ButtonVisuals.HandleUnhovered, OnUnhover));
+            View.UIBlock.AddGestureHandler<Gesture.OnPress, ButtonVisuals>((evt, visuals) => HandleGesture(evt, visuals, ButtonVisuals.HandlePressed, OnPress));
+            View.UIBlock.AddGestureHandler<Gesture.OnRelease, ButtonVisuals>((evt, visuals) => HandleGesture(evt, visuals, OnRelease));
         }
 
         private void OnDisable()
         {
-            // Unsubscribe from events
-            View.UIBlock.RemoveGestureHandler<Gesture.OnClick, ButtonVisuals>(HandleClicked);
-            View.UIBlock.RemoveGestureHandler<Gesture.OnHover, ButtonVisuals>(ButtonVisuals.HandleHovered);
-            View.UIBlock.RemoveGestureHandler<Gesture.OnUnhover, ButtonVisuals>(ButtonVisuals.HandleUnhovered);
-            View.UIBlock.RemoveGestureHandler<Gesture.OnPress, ButtonVisuals>(HandlePress);
-            View.UIBlock.RemoveGestureHandler<Gesture.OnRelease, ButtonVisuals>(HandleReleased);
-            View.UIBlock.RemoveGestureHandler<Gesture.OnCancel, ButtonVisuals>(ButtonVisuals.HandlePressCanceled);
+            View.UIBlock.RemoveGestureHandler<Gesture.OnClick, ButtonVisuals>((evt, visuals) => HandleGesture(evt, visuals, OnClicked));
+            View.UIBlock.RemoveGestureHandler<Gesture.OnHover, ButtonVisuals>((evt, visuals) => HandleGesture(evt, visuals, ButtonVisuals.HandleHovered, OnHover));
+            View.UIBlock.RemoveGestureHandler<Gesture.OnUnhover, ButtonVisuals>((evt, visuals) => HandleGesture(evt, visuals, ButtonVisuals.HandleUnhovered, OnUnhover));
+            View.UIBlock.RemoveGestureHandler<Gesture.OnPress, ButtonVisuals>((evt, visuals) => HandleGesture(evt, visuals, ButtonVisuals.HandlePressed, OnPress));
+            View.UIBlock.RemoveGestureHandler<Gesture.OnRelease, ButtonVisuals>((evt, visuals) => HandleGesture(evt, visuals, OnRelease));
         }
 
         /// <summary>
-        /// Fire the Unity event on Click.
+        /// Generic handler for gestures, visual updates, and Unity events.
         /// </summary>
-        /// <param name="evt">The click event data.</param>
-        /// <param name="visuals">The buttons visuals which received the click.</param>
-        private void HandleClicked(Gesture.OnClick evt, ButtonVisuals visuals) => OnClicked?.Invoke();
+        /// <param name="evt">The gesture event data.</param>
+        /// <param name="visuals">The button visuals receiving the event.</param>
+        /// <param name="visualUpdateAction">The action to update the visuals.</param>
+        /// <param name="unityEvent">The Unity event to invoke.</param>
+        private void HandleGesture<T>(T evt, ButtonVisuals visuals, System.Action<T, ButtonVisuals> visualUpdateAction, UnityEvent unityEvent)
+        {
+            // Update the visuals
+            visualUpdateAction?.Invoke(evt, visuals);
 
-        private void HandlePress(Gesture.OnPress evt, ButtonVisuals visuals) => OnPress?.Invoke();
+            // Invoke the Unity event
+            unityEvent?.Invoke();
+        }
 
-        private void HandleReleased(Gesture.OnRelease evt, ButtonVisuals visuals) => OnRelease?.Invoke();
+        /// <summary>
+        /// Generic handler for gestures, visual updates, and Unity events.
+        /// </summary>
+        /// <param name="evt">The gesture event data.</param>
+        /// <param name="visuals">The button visuals receiving the event.</param>
+        /// <param name="unityEvent">The Unity event to invoke.</param>
+        private void HandleGesture<T>(T evt, ButtonVisuals visuals, UnityEvent unityEvent)
+        {
+
+            // Invoke the Unity event
+            unityEvent?.Invoke();
+        }
+
+
     }
 }

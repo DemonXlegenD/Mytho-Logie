@@ -206,7 +206,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -606744951
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 4513d83023561f044a681f6d8dc5e2a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -310,6 +310,7 @@ MonoBehaviour:
   stickersIn: []
   stockPosition: {x: 15, y: 0}
   score: 0
+  can_score: 0
 --- !u!114 &4210593224032555862
 MonoBehaviour:
   m_ObjectHideFlags: 0

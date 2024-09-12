@@ -1029,7 +1029,7 @@ MonoBehaviour:
   OnHoldDone:
     m_PersistentCalls:
       m_Calls: []
-  duration: 3
+  duration: 1
 --- !u!114 &399799115105297822
 MonoBehaviour:
   m_ObjectHideFlags: 0

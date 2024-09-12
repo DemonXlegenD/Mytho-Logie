@@ -278,6 +278,7 @@ MonoBehaviour:
   stickersIn: []
   stockPosition: {x: 15, y: 0}
   score: 0
+  can_score: 0
 --- !u!114 &4210593224032555862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,7 +294,6 @@ MonoBehaviour:
   gameObjects:
   - {fileID: 2042029443460444565}
   - {fileID: 6918236903059287449}
-  - {fileID: 0}
   - {fileID: 44922798166475003}
   - {fileID: 6879809626514119045}
 --- !u!1 &6879809626514119045
