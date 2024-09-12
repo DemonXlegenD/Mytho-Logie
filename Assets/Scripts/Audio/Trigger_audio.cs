@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class Trigger_audio : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [FMODUnity.EventRef]
+    public string Event;
+    public bool PlayOnAwake;
+
+    public void PlayOneShot()
     {
-        
+        FMODUnity.RuntimeManager.PlayOneShotAttached(Event, gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+
+    private void Start()
     {
-        
+        if (PlayOnAwake)
+            PlayOneShot();
+
     }
+        
+        
+    
+       
+
+    
 }
