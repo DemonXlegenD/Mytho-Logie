@@ -5,7 +5,7 @@ using UnityEngine;
 public class Sticker : MonoBehaviour
 {
     private bool isAttached = false;
-  private Vector2 screenBounds;
+    private Vector2 screenBounds;
     private float spriteWidth;
     private float spriteHeight;
 
@@ -14,24 +14,28 @@ public class Sticker : MonoBehaviour
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sortingLayerName = "AloneSticker";
 
-        // Obtenir les limites de la caméra
+        // Obtenir les limites de la camï¿½ra
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
 
         // Obtenir la taille du sprite
         spriteWidth = transform.GetComponent<SpriteRenderer>().bounds.extents.x;
         spriteHeight = transform.GetComponent<SpriteRenderer>().bounds.extents.y;
+        Vector3 position = transform.position;
+        position.z = 0f;
+        transform.position = position;
     }
-
-  
 
     void LateUpdate()
     {
         // Obtenir la position actuelle du sprite
         Vector3 viewPos = transform.position;
 
-        // Limiter les mouvements du sprite dans les bornes de la caméra
+        // Limiter les mouvements du sprite dans les bornes de la camÃ©ra
         viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x * -1 + spriteWidth, screenBounds.x - spriteWidth);
         viewPos.y = Mathf.Clamp(viewPos.y, screenBounds.y * -1 + spriteHeight, screenBounds.y - spriteHeight);
+
+        // Forcer la position z Ã  0
+        viewPos.z = 0f;
 
         // Appliquer la nouvelle position
         transform.position = viewPos;
@@ -54,6 +58,7 @@ public class Sticker : MonoBehaviour
     {
         isAttached = true;
     }
+
     private void OnTriggerStay2D(Collider2D other)
     {
          if (other.CompareTag("Affiche") && GetComponent<DragAndDrop>().isDragging)
