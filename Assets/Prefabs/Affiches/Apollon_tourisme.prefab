@@ -244,12 +244,12 @@ SpriteRenderer:
   m_SortingLayerID: -606744951
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5900019512a25d44690491a3cfe3874f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5c93480841873e1479de68d07cbdbcad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 15.64, y: 19.08}
+  m_Size: {x: 35.08, y: 49.61591}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -292,7 +292,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 35.08, y: 49.61591}
-    newSize: {x: 15.64, y: 19.08}
+    newSize: {x: 35.08, y: 49.61591}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -340,14 +340,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stickers:
-  - {fileID: 3669921976156452316, guid: 2bfeff0c4af00f743b77ce98bf1faf57, type: 3}
   - {fileID: 3669921976156452316, guid: 082d5cb678ce1244d9a0d9f52f384c60, type: 3}
-  - {fileID: 3669921976156452316, guid: 63f16351c94250943823dbbdb5199536, type: 3}
-  - {fileID: 3669921976156452316, guid: e23d4b0737dea8844a94cf236274800c, type: 3}
-  - {fileID: 3669921976156452316, guid: 7476b5088b4557a47a641cc3ccf3d386, type: 3}
-  - {fileID: 3669921976156452316, guid: d6351ddcbba237941bdfbc6a435dac82, type: 3}
-  - {fileID: 3669921976156452316, guid: 5027edb572a0f0f498b935cf5e092a50, type: 3}
   - {fileID: 2904828432644569266, guid: 3c929a3ace7ca7b4e8450b28d8e788ce, type: 3}
+  - {fileID: 3669921976156452316, guid: e76f3ee50428905429d35dc6181850b8, type: 3}
+  - {fileID: 3669921976156452316, guid: 029e7548a3a48ca45be6e90df2061eaa, type: 3}
   stickersIn: []
   stockPosition: {x: 15, y: 0}
   score: 0
