@@ -2,7 +2,6 @@ using Nova;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.Video;
 using UnityEngine.Video;
 
 public class MenuManager : MonoBehaviour
@@ -13,9 +12,12 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject buttonUnmusic;
     [SerializeField] private GameObject panelQuit;
 
+    [SerializeField] private List<GameObject> hideToStart;
+
     [SerializeField] private VideoPlayer videoPlayer;
     [SerializeField] private int videoClipIndex = 0;
     private bool cinematic = false;
+    private bool clicked = false;
 
     [SerializeField] private List<VideoClip> videos;
 
@@ -23,19 +25,18 @@ public class MenuManager : MonoBehaviour
 
     void Start()
     {
-        videoPlayer.loopPointReached += OnVideoFinished;
+
     }
 
     private void Update()
     {
-        if(videoClipIndex >= 0)
+        if (cinematic)
         {
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log("Clicked");
-                videoClipIndex++;
-                 PlayNextVideo();
-                
+                    Debug.Log("Clicked");
+                    videoClipIndex++;
+                PlayNextVideo();
             }
         }
     }
@@ -44,11 +45,12 @@ public class MenuManager : MonoBehaviour
 
     void OnVideoFinished(VideoPlayer vp)
     {
-         if (videoClipIndex == videos.Count - 1)
+        if (videoClipIndex == videos.Count - 1)
         {
             videoPlayer.isLooping = true;
             videoPlayer.Play();
-        } else
+        }
+        else
         {
             videoClipIndex++;
             PlayNextVideo();
@@ -59,19 +61,28 @@ public class MenuManager : MonoBehaviour
     {
         if (videoClipIndex < videos.Count)
         {
-            if(videoPlayer.isPlaying) videoPlayer.Stop();
+            if (videoPlayer.isPlaying) videoPlayer.Stop();
             videoPlayer.clip = videos[videoClipIndex];
             videoPlayer.Play();
-        } else
+        }
+        else
         {
             GameManager.Instance.StartGame();
         }
-    }  
-    
+        
+    }
+
+
+
     public void OnPlayButtonClick()
     {
         cinematic = true;
         videoPlayer.isLooping = false;
+        foreach (GameObject gameObject in hideToStart)
+        {
+            gameObject.SetActive(false);
+        }
+        videoPlayer.loopPointReached += OnVideoFinished;
         PlayNextVideo();
     }
 
@@ -97,7 +108,7 @@ public class MenuManager : MonoBehaviour
 
     public void OnSoundButtonClick()
     {
-        if(isMute) GameManager.Instance.UnmuteAudio();
+        if (isMute) GameManager.Instance.UnmuteAudio();
         else GameManager.Instance.MuteAudio();
         isMute = !isMute;
         buttonUnmusic.SetActive(isMute);
