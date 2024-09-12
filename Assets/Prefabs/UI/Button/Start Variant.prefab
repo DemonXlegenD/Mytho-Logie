@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: texture
       value: 
       objectReference: {fileID: 2800000, guid: 2e0099a1ebfcd3e4b831802bdd1dde90, type: 3}
+    - target: {fileID: 1112665543205243014, guid: ffe719382c194bf4a8d0f8fb6f201e9e, type: 3}
+      propertyPath: layout.Size.X.Raw
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1112665543205243014, guid: ffe719382c194bf4a8d0f8fb6f201e9e, type: 3}
+      propertyPath: layout.Size.Y.Raw
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5194012146113000612, guid: ffe719382c194bf4a8d0f8fb6f201e9e, type: 3}
       propertyPath: OnClicked.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -37,12 +45,28 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5834348632312046412, guid: ffe719382c194bf4a8d0f8fb6f201e9e, type: 3}
+      propertyPath: PreviewSize.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5834348632312046412, guid: ffe719382c194bf4a8d0f8fb6f201e9e, type: 3}
+      propertyPath: PreviewSize.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5834348632312046412, guid: ffe719382c194bf4a8d0f8fb6f201e9e, type: 3}
       propertyPath: layout.AutoSize.X
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5834348632312046412, guid: ffe719382c194bf4a8d0f8fb6f201e9e, type: 3}
       propertyPath: layout.AutoSize.Y
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5834348632312046412, guid: ffe719382c194bf4a8d0f8fb6f201e9e, type: 3}
+      propertyPath: layout.Size.X.Raw
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5834348632312046412, guid: ffe719382c194bf4a8d0f8fb6f201e9e, type: 3}
+      propertyPath: layout.Size.Y.Raw
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5834348632312046412, guid: ffe719382c194bf4a8d0f8fb6f201e9e, type: 3}
       propertyPath: layout.Alignment.Y
@@ -82,7 +106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8857037579007944976, guid: ffe719382c194bf4a8d0f8fb6f201e9e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -49.64496
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 8857037579007944976, guid: ffe719382c194bf4a8d0f8fb6f201e9e, type: 3}
       propertyPath: m_LocalPosition.z
