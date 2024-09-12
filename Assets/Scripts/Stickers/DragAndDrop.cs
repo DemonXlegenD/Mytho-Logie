@@ -107,6 +107,7 @@ public class DragAndDrop : MonoBehaviour
 
     void OnMouseDown()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Sticker_pickup");
         Cursor.SetCursor(cursorTextureClic, hotSpot, cursorMode);
         offset = transform.position - GetMouseWorldPos();
         spriteRenderer.sortingOrder = sortingOrder++;
@@ -132,6 +133,7 @@ public class DragAndDrop : MonoBehaviour
 
     void OnMouseUp()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Sticker_stamp");
         isDragging = false;
         Cursor.SetCursor(cursorTextureHover, Vector2.zero, cursorMode);
         if (isTextSticker)
