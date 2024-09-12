@@ -200,6 +200,7 @@ GameObject:
   - component: {fileID: -145512788992285051}
   - component: {fileID: 7233220898994325953}
   - component: {fileID: 4210593224032555862}
+  - component: {fileID: 6386372541458336612}
   m_Layer: 0
   m_Name: Apollon_bataille
   m_TagString: Affiche
@@ -273,13 +274,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -606744951
   m_SortingLayer: 1
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: f27a965d206668849a10189d582d05f0, type: 3}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: b4c7feff123772744b82f2a462567f1b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 35.08, y: 49.61591}
+  m_Size: {x: 15.64, y: 19.08}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -322,7 +323,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 35.08, y: 49.61591}
-    newSize: {x: 35.08, y: 49.61591}
+    newSize: {x: 15.64, y: 19.08}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -377,7 +378,6 @@ MonoBehaviour:
   - {fileID: 3669921976156452316, guid: 7476b5088b4557a47a641cc3ccf3d386, type: 3}
   - {fileID: 3669921976156452316, guid: d6351ddcbba237941bdfbc6a435dac82, type: 3}
   - {fileID: 3669921976156452316, guid: 5027edb572a0f0f498b935cf5e092a50, type: 3}
-  - {fileID: 2904828432644569266, guid: 3c929a3ace7ca7b4e8450b28d8e788ce, type: 3}
   stickersIn: []
   stockPosition: {x: 15, y: 0}
   score: 0
@@ -399,6 +399,20 @@ MonoBehaviour:
   - {fileID: 367715406945746124}
   - {fileID: 44922798166475003}
   - {fileID: 6879809626514119045}
+--- !u!114 &6386372541458336612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3669921976156452316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e8c171fc62924c498f621ac06709dcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: b4c7feff123772744b82f2a462567f1b, type: 3}
 --- !u!1 &3750671706456217552
 GameObject:
   m_ObjectHideFlags: 0

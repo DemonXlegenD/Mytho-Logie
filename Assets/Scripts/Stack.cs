@@ -13,7 +13,7 @@ public class Stacks : MonoBehaviour
     [SerializeField] private GameObject currentAffiche;
     [SerializeField] private GameObject nextAffiche;
     private List<GameObject> affichesUndone;
-    public List<GameObject> affichesDone;
+    private List<GameObject> affichesDone;
     [SerializeField] private TextMeshProTextBlock remainingAffiche;
 
     [SerializeField] private float timeBeforeEnding = 5f;
@@ -24,23 +24,24 @@ public class Stacks : MonoBehaviour
     [SerializeField] private GameObject spawnPoint; // Point d'apparition
     [SerializeField] private GameObject StickerStack;
 
-    [SerializeField] private int minSpawnSticker = 4;
-    [SerializeField] private int maxSpawnSticker = 10;
     // Private var
-    public GameManager gameManager;
+    private GameManager gameManager;
     private BoxCollider2D spawnZone; // BoxCollider définissant la zone de spawn
+    private int currentLvlMinScore;
 
     void Start()
     {
         indexActualAffiche = 0;
         gameManager = GameManager.Instance;
+        currentLvlMinScore = gameManager.scoreCapToChangeLvl[gameManager.currentLvlID];
         StartLevel();
     }
 
-    public void RestartLevel() 
+    void RestartLevel() 
     {
         gameManager.currentLvlID += 1;
         gameManager.score = 0;
+        currentLvlMinScore = gameManager.scoreCapToChangeLvl[gameManager.currentLvlID];
         StartLevel();
     }
     void StartLevel()
@@ -134,7 +135,7 @@ public class Stacks : MonoBehaviour
             return;
         }
 
-        int numberOfStickers = Random.Range(minSpawnSticker, maxSpawnSticker); // Nombre de stickers à instancier aléatoirement
+        int numberOfStickers = Random.Range(3, 6); // Nombre de stickers à instancier aléatoirement
 
         for (int i = 0; i < numberOfStickers; i++)
         {

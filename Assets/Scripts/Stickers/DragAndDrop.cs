@@ -6,7 +6,7 @@ public class DragAndDrop : MonoBehaviour
 {
     private Vector3 offset;
     private SpriteRenderer spriteRenderer;
-    private static int sortingOrder = 1;
+    private static int sortingOrder = 10;
     public bool isDragging = false;
     private string stickerText = ""; // Le texte du sticker
     private bool isEditingText = false;
@@ -65,7 +65,7 @@ public class DragAndDrop : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
         if (hit.collider != null && hit.collider.gameObject == gameObject)
         {
-            //Debug.Log("HAAAN");
+            Debug.Log("HAAAN");
             // Redimensionnement avec la molette de la souris
             float scroll = Input.GetAxis("Mouse ScrollWheel");
             if (scroll != 0f)
