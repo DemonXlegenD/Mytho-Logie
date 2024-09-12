@@ -10,9 +10,6 @@ public class Stacks : MonoBehaviour
     [SerializeField] private GameObject[] affichesPrefabs; // Liste des préfabriqués d'affiches
     [SerializeField] private Interactable buttonNextAffiche;
 
-    [SerializeField]
-    private GameObject buttonNext;
-
  [SerializeField] private GameObject currentAffiche;
     [SerializeField] private GameObject nextAffiche;
     private List<GameObject> affichesUndone;
@@ -167,8 +164,8 @@ public class Stacks : MonoBehaviour
 
     private IEnumerator WaitButton()
     {
-        buttonNext.GetComponent<Interactable>().enabled = false;
+        buttonNextAffiche.enabled = false;
         yield return new WaitForSeconds(2);
-        buttonNext.GetComponent<Interactable>().enabled = true;
+        buttonNextAffiche.enabled = true;
     }
 }
