@@ -2,6 +2,8 @@ using Nova;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Video;
+using UnityEngine.Video;
 
 public class MenuManager : MonoBehaviour
 {
@@ -11,10 +13,66 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject buttonUnmusic;
     [SerializeField] private GameObject panelQuit;
 
+    [SerializeField] private VideoPlayer videoPlayer;
+    [SerializeField] private int videoClipIndex = 0;
+    private bool cinematic = false;
+
+    [SerializeField] private List<VideoClip> videos;
+
     public bool isMute = false;
+
+    void Start()
+    {
+        videoPlayer.loopPointReached += OnVideoFinished;
+    }
+
+    private void Update()
+    {
+        if(videoClipIndex >= 0)
+        {
+            if (Input.GetMouseButton(0))
+            {
+                Debug.Log("Clicked");
+                videoClipIndex++;
+                 PlayNextVideo();
+                
+            }
+        }
+    }
+
+
+
+    void OnVideoFinished(VideoPlayer vp)
+    {
+         if (videoClipIndex == videos.Count - 1)
+        {
+            videoPlayer.isLooping = true;
+            videoPlayer.Play();
+        } else
+        {
+            videoClipIndex++;
+            PlayNextVideo();
+        }
+    }
+
+    private void PlayNextVideo()
+    {
+        if (videoClipIndex < videos.Count)
+        {
+            if(videoPlayer.isPlaying) videoPlayer.Stop();
+            videoPlayer.clip = videos[videoClipIndex];
+            videoPlayer.Play();
+        } else
+        {
+            GameManager.Instance.StartGame();
+        }
+    }  
+    
     public void OnPlayButtonClick()
     {
-        GameManager.Instance.StartGame();
+        cinematic = true;
+        videoPlayer.isLooping = false;
+        PlayNextVideo();
     }
 
     public void OnQuitButtonClick()
@@ -49,6 +107,7 @@ public class MenuManager : MonoBehaviour
 
     public void HidePanelQuit()
     {
+        videoPlayer.Play();
         buttonQuit.GetComponent<Interactable>().enabled = true;
         buttonStart.GetComponent<Interactable>().enabled = true;
         buttonMusic.GetComponent<Interactable>().enabled = true;
@@ -58,6 +117,7 @@ public class MenuManager : MonoBehaviour
 
     public void ShowPanelQuit()
     {
+        videoPlayer.Pause();
         buttonQuit.GetComponent<Interactable>().enabled = false;
         buttonStart.GetComponent<Interactable>().enabled = false;
         buttonMusic.GetComponent<Interactable>().enabled = false;
