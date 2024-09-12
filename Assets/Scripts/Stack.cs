@@ -28,6 +28,7 @@ public class Stacks : MonoBehaviour
     private GameManager gameManager;
     private BoxCollider2D spawnZone; // BoxCollider définissant la zone de spawn
     private int currentLvlMinScore;
+    public bool endedGame = false;
 
     void Start()
     {
@@ -46,6 +47,7 @@ public class Stacks : MonoBehaviour
     }
     void StartLevel()
     {
+        endedGame = false;
         foreach (Transform child in StickerStack.transform) {
             GameObject.Destroy(child.gameObject);
         }
@@ -104,6 +106,8 @@ public class Stacks : MonoBehaviour
 
     public void SubmitAffiche()
     {
+        currentAffiche.GetComponent<Affiche>().AttachStickers();
+        nextAffiche.GetComponent<Affiche>().AttachStickers();
         buttonNextAffiche.enabled = false;
         StartCoroutine(EndGame(timeBeforeEnding));
     }
@@ -122,6 +126,7 @@ public class Stacks : MonoBehaviour
                 gameManager.score += afficheScript.score; // Ajouter le score de l'affiche au score global
             }
         }
+        endedGame = true;
         ConfigurationUI.StartCommentary();
     }
 

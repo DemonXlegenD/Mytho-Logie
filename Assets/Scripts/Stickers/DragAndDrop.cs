@@ -13,7 +13,7 @@ public class DragAndDrop : MonoBehaviour
 
     [SerializeField] private Texture2D cursorTextureHover;
     [SerializeField] private Texture2D cursorTextureClic;
-    [SerializeField] private bool isTextSticker = false; // Variable pour déterminer si c'est un sticker texte
+    [SerializeField] public bool isTextSticker = false; // Variable pour déterminer si c'est un sticker texte
 
     // Variables de configuration pour le curseur
     public CursorMode cursorMode = CursorMode.Auto;
@@ -65,7 +65,7 @@ public class DragAndDrop : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
         if (hit.collider != null && hit.collider.gameObject == gameObject)
         {
-            Debug.Log("HAAAN");
+            //Debug.Log("HAAAN");
             // Redimensionnement avec la molette de la souris
             float scroll = Input.GetAxis("Mouse ScrollWheel");
             if (scroll != 0f)
