@@ -1,50 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8758025428401528385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Poster_switch
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Poster_switch
-  Guid:
-    Data1: 356358051
-    Data2: 1242339099
-    Data3: -448006758
-    Data4: -85263887
-  Banks:
-  - {fileID: 5859397331747114622}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 656
---- !u!114 &-8246019638638554335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/MAIN.bank
-  m_EditorClassIdentifier: 
-  Path: FMODAssets/Desktop/MAIN.bank
-  Name: MAIN
-  StudioPath: bank:/MAIN
-  lastModified: 638616661297942923
-  FileSizes: []
-  Exists: 1
 --- !u!114 &-5218262999062501742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,38 +15,11 @@ MonoBehaviour:
   Path: FMODAssets/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638616661296954708
+  lastModified: 638616998706851502
   FileSizes:
   - Name: 
-    Value: 1154
+    Value: 1076
   Exists: 1
---- !u!114 &-2911346689813338590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/AMB/AMB_level_loop
-  m_EditorClassIdentifier: 
-  Path: event:/AMB/AMB_level_loop
-  Guid:
-    Data1: -786151421
-    Data2: 1171773966
-    Data3: -693842287
-    Data4: -1506218977
-  Banks:
-  - {fileID: 5859397331747114622}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 101500
 --- !u!114 &-1333683374379620137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,36 +35,9 @@ MonoBehaviour:
   Path: FMODAssets/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638616661296909031
+  lastModified: 638616998706831553
   FileSizes: []
   Exists: 1
---- !u!114 &-1054260524289173592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Sticker_pickup
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Sticker_pickup
-  Guid:
-    Data1: -311061539
-    Data2: 1188298263
-    Data3: 1077339021
-    Data4: 692505756
-  Banks:
-  - {fileID: 5859397331747114622}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,75 +55,14 @@ MonoBehaviour:
   - {fileID: -1333683374379620137}
   - {fileID: 5859397331747114622}
   - {fileID: 5282469333567146300}
-  - {fileID: -8246019638638554335}
-  EditorEvents:
-  - {fileID: -2911346689813338590}
-  - {fileID: 8036656074969503113}
-  - {fileID: 829615401403331045}
-  - {fileID: -8758025428401528385}
-  - {fileID: 1754776475180188914}
-  - {fileID: -1054260524289173592}
+  EditorEvents: []
   EditorParameters: []
   MasterBanks:
   - {fileID: -1333683374379620137}
   StringsBanks:
   - {fileID: -5218262999062501742}
-  cacheTime: 638616661297942923
+  cacheTime: 638616998706851502
   cacheVersion: 131619
---- !u!114 &829615401403331045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Timer_end
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Timer_end
-  Guid:
-    Data1: -820804293
-    Data2: 1101615503
-    Data3: 180456872
-    Data4: -1964443734
-  Banks:
-  - {fileID: 5859397331747114622}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 1121
---- !u!114 &1754776475180188914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Sticker_stamp
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Sticker_stamp
-  Guid:
-    Data1: -1161437789
-    Data2: 1288681495
-    Data3: -1067758203
-    Data4: -428738889
-  Banks:
-  - {fileID: 5859397331747114622}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &5282469333567146300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,7 +78,7 @@ MonoBehaviour:
   Path: FMODAssets/Desktop/MENU.bank
   Name: MENU
   StudioPath: bank:/MENU
-  lastModified: 638616661297258379
+  lastModified: 638616998706821578
   FileSizes: []
   Exists: 1
 --- !u!114 &5859397331747114622
@@ -256,33 +96,6 @@ MonoBehaviour:
   Path: FMODAssets/Desktop/LEVEL.bank
   Name: LEVEL
   StudioPath: bank:/LEVEL
-  lastModified: 638616661297917881
+  lastModified: 638616998706811626
   FileSizes: []
   Exists: 1
---- !u!114 &8036656074969503113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Dialogue_box
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Dialogue_box
-  Guid:
-    Data1: 833484561
-    Data2: 1184935201
-    Data3: -1186356066
-    Data4: 1978517357
-  Banks:
-  - {fileID: 5859397331747114622}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 125
