@@ -118,12 +118,14 @@ public class Stacks : MonoBehaviour
     {
         yield return new WaitForSeconds(_timer);
         StickerStack.SetActive(false);
-        foreach (GameObject affiche in affichesDone)
+        Debug.Log("Oui");
+        foreach (GameObject affiche in affichesUndone)
         {
             Affiche afficheScript = affiche.GetComponent<Affiche>();
             if (afficheScript != null)
             {
-                gameManager.score += afficheScript.score; // Ajouter le score de l'affiche au score global
+                Debug.Log("Haha ?");
+                afficheScript.AddScore();
             }
         }
         endedGame = true;
