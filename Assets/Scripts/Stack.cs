@@ -104,6 +104,8 @@ public class Stacks : MonoBehaviour
 
     public void SubmitAffiche()
     {
+        currentAffiche.GetComponent<Affiche>().AttachStickers();
+        nextAffiche.GetComponent<Affiche>().AttachStickers();
         buttonNextAffiche.enabled = false;
         StartCoroutine(EndGame(timeBeforeEnding));
     }
