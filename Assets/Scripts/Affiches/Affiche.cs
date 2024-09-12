@@ -9,18 +9,14 @@ public class Affiche : MonoBehaviour
     private float zCoord;
     private SpriteRenderer spriteRenderer;
     public List<GameObject> stickers = new List<GameObject>(); // Liste des stickers associés à cette affiche
-
     public List<GameObject> stickersIn = new List<GameObject>();
     [SerializeField] private Vector2 stockPosition = new Vector2(20, 0);
     private int sortOrder = 1;
-
     private bool isMainAffiche = false;
     bool isNext = false;
     bool detect_sticker = true;
     public int score;
-
     private float animationDuration = 0.5f;
-
     private bool isFirstAnimation = true;
     private Vector3 basePosition = Vector3.zero;
     private bool isGoingLeft = false;
@@ -227,6 +223,18 @@ public class Affiche : MonoBehaviour
         //Animation Left
         if (isGoingLeft)
         {
+            if (!isFirstAnimation) {
+                foreach (Transform child in transform)
+                    {
+                        if (child.CompareTag("Sticker"))
+                        {
+                            if (child.GetComponent<DragAndDrop>().isTextSticker) {
+                                child.gameObject.SetActive(false);
+                            }
+                        }
+                    }
+            }
+
             // Calculer le temps écoulé
             elapsedTimeLeft += Time.deltaTime;
 
@@ -249,7 +257,10 @@ public class Affiche : MonoBehaviour
                 else
                 {
                     isFirstAnimation = true;
-                    if (isMainAffiche) UnattachStickers();
+                    if (isMainAffiche) 
+                    {
+                        UnattachStickers();
+                    }
                 }
                 isGoingLeft = false;
                 elapsedTimeLeft = 0f;
@@ -260,6 +271,18 @@ public class Affiche : MonoBehaviour
         {
             // Calculer le temps écoulé
             elapsedTimeRight += Time.deltaTime;
+
+            if (!isFirstAnimation) {
+                foreach (Transform child in transform)
+                    {
+                        if (child.CompareTag("Sticker"))
+                        {
+                            if (child.GetComponent<DragAndDrop>().isTextSticker) {
+                                child.gameObject.SetActive(true);
+                            }
+                        }
+                    }
+            }
 
             // Calculer la nouvelle position
             transform.position = Vector3.Lerp(basePosition, basePosition + new Vector3(2f, 0f), elapsedTimeRight / animationDuration);
@@ -279,7 +302,10 @@ public class Affiche : MonoBehaviour
                 else
                 {
                     isFirstAnimation = true;
-                    if (isMainAffiche) UnattachStickers();
+                    if (isMainAffiche) 
+                    {
+                        UnattachStickers();
+                    }
 
                 }
                 isGoingRight = false;
