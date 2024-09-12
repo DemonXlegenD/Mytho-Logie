@@ -28,6 +28,16 @@ public class PanelCommentary : MonoBehaviour
 
             list[i].transform.SetParent(afficheBlock.transform.GetChild(i).transform, true);
             list[i].transform.position = afficheBlock.transform.GetChild(i).transform.position + new Vector3(0f,0.5f,0f);
+
+            foreach (Transform child in list[i].transform)
+            {
+                if (child.CompareTag("Sticker"))
+                {
+                    Vector3 position = child.transform.position;
+                    position.z = 0f;
+                    child.transform.position = position;
+                }
+            }
         }
         Debug.Log(afficheBlock.name);
         Panel.gameObject.SetActive(true);
