@@ -9,8 +9,9 @@ public class Stacks : MonoBehaviour
     [SerializeField] private int indexActualAffiche = 0;
     [SerializeField] private GameObject[] affichesPrefabs; // Liste des préfabriqués d'affiches
     [SerializeField] private Interactable buttonNextAffiche;
-
- [SerializeField] private GameObject currentAffiche;
+    [SerializeField] private GameObject ThemeLoadPoint;
+    [SerializeField] private List<Theme> themes;// Liste des sprites pour le thème
+    [SerializeField] private GameObject currentAffiche;
     [SerializeField] private GameObject nextAffiche;
     private List<GameObject> affichesUndone;
     private List<GameObject> affichesDone;
@@ -28,6 +29,14 @@ public class Stacks : MonoBehaviour
     private BoxCollider2D spawnZone; // BoxCollider définissant la zone de spawn
     private int currentLvlMinScore;
     public bool endedGame = false;
+
+    private string selectedThemeName; // Stocke le nom du thème sélectionné
+    [System.Serializable]
+    public class Theme
+    {
+        public string name; // Nom du thème, ex : "Artémis" ou "Apollon"
+        public Sprite sprite; // Sprite associé
+    }
 
     void Start()
     {
@@ -47,6 +56,7 @@ public class Stacks : MonoBehaviour
     void StartLevel()
     {
         endedGame = false;
+        AssignRandomThemeSprite();
         foreach (Transform child in StickerStack.transform) {
             GameObject.Destroy(child.gameObject);
         }
@@ -75,6 +85,25 @@ public class Stacks : MonoBehaviour
         current.SetIsMainAffiche(true);
         next.SetIsMainAffiche(false);
         current.SetMainOrder();
+    }
+
+    private void AssignRandomThemeSprite()
+    {
+        if (themes.Count == 0)
+        {
+            Debug.LogWarning("Aucun thème disponible dans la liste.");
+            return;
+        }
+
+        // Sélectionner un thème aléatoire
+        Theme selectedTheme = themes[Random.Range(0, themes.Count)];
+
+        // Assigner le sprite au SpriteRenderer de ThemeLoadPoint
+        ThemeLoadPoint.GetComponent<SpriteRenderer>().sprite = selectedTheme.sprite;
+
+        // Stocker le nom du thème sélectionné
+        selectedThemeName = selectedTheme.name;
+        Debug.Log("Thème sélectionné : " + selectedThemeName);
     }
 
     public void NextAffiche()
