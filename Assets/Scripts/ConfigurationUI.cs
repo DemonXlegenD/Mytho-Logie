@@ -7,7 +7,6 @@ public class ConfigurationUI : MonoBehaviour
 {
     [SerializeField] private UIBlock2D uiGame;
     [SerializeField] private UIBlock2D PanelWin;
-    [SerializeField] private UIBlock2D PanelLose;
     [SerializeField] private UIBlock2D PanelCommentary;
 
     private void Start()
@@ -15,14 +14,12 @@ public class ConfigurationUI : MonoBehaviour
         uiGame.gameObject.SetActive(true);
         PanelWin.gameObject.SetActive(false);
         PanelCommentary.gameObject.SetActive(false);
-        PanelLose.gameObject.SetActive(false);
     }
 
     public void StartCommentary()
     {
         uiGame.gameObject.SetActive(false);
         PanelWin.gameObject.SetActive(false);
-        PanelLose.gameObject.SetActive(false);
         StartCoroutine(ActivateAndCallFunction(PanelCommentary.gameObject));
     }
 
@@ -38,16 +35,7 @@ public class ConfigurationUI : MonoBehaviour
     {
         uiGame.gameObject.SetActive(false);
         PanelCommentary.gameObject.SetActive(false);
-        PanelLose.gameObject.SetActive(false);
         PanelWin.gameObject.SetActive(true);
-    }
-
-    public void StartPanelLose()
-    {
-        uiGame.gameObject.SetActive(false);
-        PanelCommentary.gameObject.SetActive(false);
-        PanelWin.gameObject.SetActive(false);
-        PanelLose.gameObject.SetActive(true);
     }
 
     public void OnMainMenu()

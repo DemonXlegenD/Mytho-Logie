@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3873361367240211079}
   m_Layer: 0
-  m_Name: Main Droite
+  m_Name: Public
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 44922798166475003}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.93, y: -0.99, z: -0.041899733}
+  m_LocalPosition: {x: -13.5, y: -9.3, z: -0.041899733}
   m_LocalScale: {x: 2.7450163, y: 2.7450163, z: 2.7450163}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2369089703497477929}
   m_Layer: 0
-  m_Name: Main Gauche
+  m_Name: Mains
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 367715406945746124}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.05, y: 0.01, z: -0.041899733}
+  m_LocalPosition: {x: -0.7, y: -6.2, z: -0.041899733}
   m_LocalScale: {x: 2.7450163, y: 2.7450163, z: 2.7450163}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -72,7 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3401905469897076728}
   m_Layer: 0
-  m_Name: Yeux
+  m_Name: Chapeau
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,7 +87,7 @@ Transform:
   m_GameObject: {fileID: 2042029443460444565}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.4, y: 2.6, z: -0.041899733}
+  m_LocalPosition: {x: -0.6, y: 12.5, z: -0.041899733}
   m_LocalScale: {x: 2.7450163, y: 2.7450163, z: 2.7450163}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 7233220898994325953}
   - component: {fileID: 4210593224032555862}
   m_Layer: 0
-  m_Name: Artemis_peuple
+  m_Name: Artemis_Peuple
   m_TagString: Affiche
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -306,7 +306,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2585585032911265023}
   m_Layer: 0
-  m_Name: Corps
+  m_Name: Public
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -321,7 +321,7 @@ Transform:
   m_GameObject: {fileID: 6879809626514119045}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.18, y: -2.26, z: -0.041899733}
+  m_LocalPosition: {x: 12.2, y: -9, z: -0.041899733}
   m_LocalScale: {x: 2.7450163, y: 2.7450163, z: 2.7450163}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -337,7 +337,7 @@ GameObject:
   m_Component:
   - component: {fileID: 351752470425878470}
   m_Layer: 0
-  m_Name: Bouche
+  m_Name: Visage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -352,7 +352,7 @@ Transform:
   m_GameObject: {fileID: 6918236903059287449}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.36, y: 0.97, z: -0.041899733}
+  m_LocalPosition: {x: -0.9, y: 6.8, z: -0.041899733}
   m_LocalScale: {x: 2.7450163, y: 2.7450163, z: 2.7450163}
   m_ConstrainProportionsScale: 0
   m_Children: []
