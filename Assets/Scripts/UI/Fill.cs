@@ -17,10 +17,13 @@ public class Fill : MonoBehaviour
 
     public void ChangeSize(float percent)
     {
+        if (parentBlock)
+        {
+            float referenceSizeX = parentBlock.Size.X.Value;
+            float newSize = m_fill.Size.X.Value;
+            newSize = referenceSizeX * percent;
+            m_fill.Size.X.Value = newSize;
+        }
 
-        float referenceSizeX = parentBlock.Size.X.Value;
-        float newSize = m_fill.Size.X.Value;
-        newSize = referenceSizeX * percent;
-        m_fill.Size.X.Value = newSize;
     }
 }

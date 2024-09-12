@@ -10,11 +10,10 @@ public class Stacks : MonoBehaviour
     [SerializeField] private GameObject[] affichesPrefabs; // Liste des préfabriqués d'affiches
     [SerializeField] private Interactable buttonNextAffiche;
 
-    [SerializeField] private GameObject currentAffiche;
+ [SerializeField] private GameObject currentAffiche;
     [SerializeField] private GameObject nextAffiche;
     private List<GameObject> affichesUndone;
     private List<GameObject> affichesDone;
-    [SerializeField] private TextMeshProTextBlock remainingAffiche;
 
     [SerializeField] private float timeBeforeEnding = 5f;
     [SerializeField] private int maxAffiche = 1;
@@ -76,12 +75,6 @@ public class Stacks : MonoBehaviour
         current.SetIsMainAffiche(true);
         next.SetIsMainAffiche(false);
         current.SetMainOrder();
-        ChangeRemainingAfficheText();
-    }
-
-    public void ChangeRemainingAfficheText()
-    {
-        remainingAffiche.text = $"{affichesDone.Count} / {maxAffiche}";
     }
 
     public void NextAffiche()
@@ -166,8 +159,15 @@ public class Stacks : MonoBehaviour
     }
 
 
-    private void SwitchAnimation()
+    public void PauseButtonSwitch()
     {
+        StartCoroutine(WaitButton());
+    }
 
+    private IEnumerator WaitButton()
+    {
+        buttonNextAffiche.enabled = false;
+        yield return new WaitForSeconds(2);
+        buttonNextAffiche.enabled = true;
     }
 }
