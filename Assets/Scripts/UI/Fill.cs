@@ -12,7 +12,7 @@ public class Fill : MonoBehaviour
     {
         parentBlock = GetComponent<UIBlock2D>();
         m_fill.Size.X = 0;
-        m_fill.Size.Y = parentBlock.Size.Y.Value;
+        m_fill.Size.Y = parentBlock.Size.Y.Value - 3;
     }
 
     public void ChangeSize(float percent)
