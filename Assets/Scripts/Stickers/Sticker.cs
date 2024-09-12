@@ -20,9 +20,6 @@ public class Sticker : MonoBehaviour
         // Obtenir la taille du sprite
         spriteWidth = transform.GetComponent<SpriteRenderer>().bounds.extents.x;
         spriteHeight = transform.GetComponent<SpriteRenderer>().bounds.extents.y;
-        Vector3 position = transform.position;
-        position.z = 0f;
-        transform.position = position;
     }
 
     void LateUpdate()
@@ -33,9 +30,6 @@ public class Sticker : MonoBehaviour
         // Limiter les mouvements du sprite dans les bornes de la caméra
         viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x * -1 + spriteWidth, screenBounds.x - spriteWidth);
         viewPos.y = Mathf.Clamp(viewPos.y, screenBounds.y * -1 + spriteHeight, screenBounds.y - spriteHeight);
-
-        // Forcer la position z à 0
-        viewPos.z = 0f;
 
         // Appliquer la nouvelle position
         transform.position = viewPos;
