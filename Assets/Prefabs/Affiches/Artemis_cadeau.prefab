@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 7233220898994325953}
   - component: {fileID: 4210593224032555862}
   m_Layer: 0
-  m_Name: Artemis_Cadeau
+  m_Name: Artemis_cadeau
   m_TagString: Affiche
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -309,6 +309,7 @@ MonoBehaviour:
   stickersIn: []
   stockPosition: {x: 15, y: 0}
   score: 0
+  can_score: 0
 --- !u!114 &4210593224032555862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,7 +327,6 @@ MonoBehaviour:
   - {fileID: 6918236903059287449}
   - {fileID: 367715406945746124}
   - {fileID: 44922798166475003}
-  - {fileID: 0}
 --- !u!1 &6918236903059287449
 GameObject:
   m_ObjectHideFlags: 0
