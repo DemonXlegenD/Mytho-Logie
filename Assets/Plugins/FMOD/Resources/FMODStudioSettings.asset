@@ -489,6 +489,7 @@ MonoBehaviour:
   - Master
   Banks:
   - LEVEL
+  - MAIN
   - MENU
   BanksToLoad: []
   LiveUpdatePort: 9264
