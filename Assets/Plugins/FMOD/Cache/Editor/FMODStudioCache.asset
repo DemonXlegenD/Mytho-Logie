@@ -27,6 +27,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1121
+--- !u!114 &-8734183167738618993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MUS/MusLevel_loop
+  m_EditorClassIdentifier: 
+  Path: event:/MUS/MusLevel_loop
+  Guid:
+    Data1: -304835568
+    Data2: 1295535355
+    Data3: 253788080
+    Data4: -610062143
+  Banks:
+  - {fileID: 5859397331747114622}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 84560
 --- !u!114 &-8216067564476933728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,10 +232,10 @@ MonoBehaviour:
   Path: FMODAssets/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638618208460214291
+  lastModified: 638618217347188828
   FileSizes:
   - Name: 
-    Value: 1736
+    Value: 1784
   Exists: 1
 --- !u!114 &-4729571072378994583
 MonoBehaviour:
@@ -279,7 +306,7 @@ MonoBehaviour:
   Path: FMODAssets/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638618208460189195
+  lastModified: 638618217347178803
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -317,12 +344,13 @@ MonoBehaviour:
   - {fileID: 2063824661766921348}
   - {fileID: -4729571072378994583}
   - {fileID: 7235527379072137428}
+  - {fileID: -8734183167738618993}
   EditorParameters: []
   MasterBanks:
   - {fileID: -1333683374379620137}
   StringsBanks:
   - {fileID: -5218262999062501742}
-  cacheTime: 638618208460543373
+  cacheTime: 638618217347417495
   cacheVersion: 131619
 --- !u!114 &151521942066245259
 MonoBehaviour:
@@ -448,7 +476,7 @@ MonoBehaviour:
   Path: FMODAssets/Desktop/MENU.bank
   Name: MENU
   StudioPath: bank:/MENU
-  lastModified: 638618208460543373
+  lastModified: 638618217347417495
   FileSizes: []
   Exists: 1
 --- !u!114 &5859397331747114622
@@ -466,7 +494,7 @@ MonoBehaviour:
   Path: FMODAssets/Desktop/LEVEL.bank
   Name: LEVEL
   StudioPath: bank:/LEVEL
-  lastModified: 638618171433279030
+  lastModified: 638618217347125895
   FileSizes: []
   Exists: 1
 --- !u!114 &7235527379072137428
