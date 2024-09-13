@@ -132,7 +132,18 @@ public class Stacks : MonoBehaviour
         currentAffiche.GetComponent<Affiche>().AttachStickers();
         nextAffiche.GetComponent<Affiche>().AttachStickers();
         buttonNextAffiche.enabled = false;
-        StartCoroutine(EndGame(timeBeforeEnding));
+        foreach (GameObject affiche in affichesUndone)
+        {
+            Affiche afficheScript = affiche.GetComponent<Affiche>();
+            if (afficheScript != null)
+            {
+                Debug.Log("Haha ?");
+                afficheScript.AddScore();
+            }
+        }
+        endedGame = true;
+        ThemeLoadPoint.SetActive(false);
+        ConfigurationUI.StartCommentary();
     }
 
     public List<GameObject> GetAffiches() { return affichesUndone; }
