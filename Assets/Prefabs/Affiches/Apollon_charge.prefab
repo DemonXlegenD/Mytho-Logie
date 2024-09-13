@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 7233220898994325953}
   - component: {fileID: 4210593224032555862}
   m_Layer: 0
-  m_Name: Apollon_charge
+  m_Name: Apollon_Charge
   m_TagString: Affiche
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -300,6 +300,7 @@ MonoBehaviour:
   - {fileID: 3669921976156452316, guid: e23d4b0737dea8844a94cf236274800c, type: 3}
   - {fileID: 3669921976156452316, guid: 0841e87563557704e81521d9f6cd63b1, type: 3}
   - {fileID: 3669921976156452316, guid: 75689d566d2dcdb4192d96f6776e0b4f, type: 3}
+  - {fileID: 2904828432644569266, guid: 3c929a3ace7ca7b4e8450b28d8e788ce, type: 3}
   stickersIn: []
   stockPosition: {x: 15, y: 0}
   score: 0

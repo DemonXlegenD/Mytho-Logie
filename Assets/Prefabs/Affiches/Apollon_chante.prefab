@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 7233220898994325953}
   - component: {fileID: 4210593224032555862}
   m_Layer: 0
-  m_Name: Apollon_chante
+  m_Name: Apollon_Chante
   m_TagString: Affiche
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stickers:
-  - {fileID: 3669921976156452316, guid: 70d7b48b021ed774dab7ae95e3005276, type: 3}
+  - {fileID: 2904828432644569266, guid: 3c929a3ace7ca7b4e8450b28d8e788ce, type: 3}
   - {fileID: 3669921976156452316, guid: 63f16351c94250943823dbbdb5199536, type: 3}
   - {fileID: 3669921976156452316, guid: 5027edb572a0f0f498b935cf5e092a50, type: 3}
   - {fileID: 3669921976156452316, guid: fdd19d2da59795c419030fae97548b8e, type: 3}
