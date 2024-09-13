@@ -1,6 +1,8 @@
 using Nova;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class ConfigurationUI : MonoBehaviour
@@ -11,8 +13,10 @@ public class ConfigurationUI : MonoBehaviour
     [SerializeField] private UIBlock2D PanelScreenshot;
     [SerializeField] private GameObject screenshotButton;
 
+    private string screenshotsFolder;   
     private void Start()
     {
+        screenshotsFolder = Application.dataPath + "/Screenshots/";
         uiGame.gameObject.SetActive(true);
         PanelWin.gameObject.SetActive(false);
         PanelCommentary.gameObject.SetActive(false);
@@ -86,8 +90,18 @@ public class ConfigurationUI : MonoBehaviour
 
     public void TakeScreenShot() 
     {
-        ScreenCapture.CaptureScreenshot("screenshot.png");
+        string screenshotName = "screenshot_" + System.DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".png";
+        string screenshotPath = Path.Combine(screenshotsFolder, screenshotName);
+        Debug.Log(screenshotPath);
+        ScreenCapture.CaptureScreenshot(screenshotPath);
 
+        StartCoroutine(WaitStart());
+    }
+
+
+    private IEnumerator WaitStart()
+    {
+        yield return new WaitForSeconds(1);
         StartCommentary();
     }
 }
