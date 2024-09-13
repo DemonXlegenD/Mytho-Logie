@@ -69,6 +69,13 @@ public class Stacks : MonoBehaviour
         {
             // Sélectionner une affiche aléatoire parmi les préfabriqués
             GameObject affichePrefab = affichesPrefabs[Random.Range(0, affichesPrefabs.Length)];
+            if (affichesUndone.Count == 1)
+            {
+                while (affichesUndone[0] == affichePrefab)
+                {
+                    affichePrefab = affichesPrefabs[Random.Range(0, affichesPrefabs.Length)];
+                }
+            }
             affichePrefab.GetComponent<SpriteRenderer>().sortingOrder = maxAffiche - i - 1;
             SpawnStickersForAffiche(affichePrefab);
             
@@ -132,7 +139,18 @@ public class Stacks : MonoBehaviour
         currentAffiche.GetComponent<Affiche>().AttachStickers();
         nextAffiche.GetComponent<Affiche>().AttachStickers();
         buttonNextAffiche.enabled = false;
-        StartCoroutine(EndGame(timeBeforeEnding));
+        foreach (GameObject affiche in affichesUndone)
+        {
+            Affiche afficheScript = affiche.GetComponent<Affiche>();
+            if (afficheScript != null)
+            {
+                Debug.Log("Haha ?");
+                afficheScript.AddScore();
+            }
+        }
+        endedGame = true;
+        ThemeLoadPoint.SetActive(false);
+        ConfigurationUI.StartCommentary();
     }
 
     public List<GameObject> GetAffiches() { return affichesUndone; }
