@@ -41,8 +41,6 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-
-
     void OnVideoFinished(VideoPlayer vp)
     {
         if (videoClipIndex == videos.Count - 1)
