@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 7233220898994325953}
   - component: {fileID: 4210593224032555862}
   m_Layer: 0
-  m_Name: Apollon_tourisme
+  m_Name: Apollon_Tourisme
   m_TagString: Affiche
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stickers:
-  - {fileID: 3669921976156452316, guid: 70d7b48b021ed774dab7ae95e3005276, type: 3}
+  - {fileID: 2904828432644569266, guid: 3c929a3ace7ca7b4e8450b28d8e788ce, type: 3}
   - {fileID: 3669921976156452316, guid: 63f16351c94250943823dbbdb5199536, type: 3}
   - {fileID: 3669921976156452316, guid: 2bfeff0c4af00f743b77ce98bf1faf57, type: 3}
   - {fileID: 3669921976156452316, guid: 0d5ba7f5169ceb641b664bd61050d750, type: 3}

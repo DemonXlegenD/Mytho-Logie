@@ -11,7 +11,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject buttonMusic;
     [SerializeField] private GameObject buttonUnmusic;
     [SerializeField] private GameObject panelQuit;
-
+    [SerializeField] private GameObject skip;
     [SerializeField] private List<GameObject> hideToStart;
 
     [SerializeField] private VideoPlayer videoPlayer;
@@ -26,7 +26,7 @@ public class MenuManager : MonoBehaviour
 
     void Start()
     {
-
+        skip.SetActive(false);
     }
 
     private void Update()
@@ -77,6 +77,7 @@ public class MenuManager : MonoBehaviour
 
     public void OnPlayButtonClick()
     {
+        skip.SetActive(true);
         cinematic = true;
         videoPlayer.isLooping = false;
         foreach (GameObject gameObject in hideToStart)
