@@ -8,6 +8,18 @@ public class AddComment : MonoBehaviour
     private TextMeshProTextBlock textMeshPro; 
     public Stacks stack;
     public int id = 0;
+    private bool isWrited = false;
+
+    // Sprites pour les émotions d'Arthémis et Apollon
+    public Sprite artemisHappy;
+    public Sprite artemisNeutral;
+    public Sprite artemisSad;
+    public Sprite apollonHappy;
+    public Sprite apollonNeutral;
+    public Sprite apollonSad;
+
+    // Référence au UI block 2D de Nova
+    public GameObject uiBlock2D;
 
     private Dictionary<string, List<string>> dictType1 = new Dictionary<string, List<string>>()
     {
@@ -39,22 +51,30 @@ public class AddComment : MonoBehaviour
 
     void Update()
     { 
-        if (stack.endedGame) 
+        if (stack.endedGame && !isWrited) 
         {
+            isWrited = true;
             Affiche afficheScript = stack.GetAffiches()[id].GetComponent<Affiche>();
-            
+
+            string selectedText = "";
+
             if (afficheScript.score > 66) 
             {
-                textMeshPro.text = GetRandomPhrase("Apollon", "type1");
+                selectedText = GetRandomPhrase("Apollon", "type1");
+                UpdateUIBlockSprite("Apollon", "Happy");
             } 
             else if (afficheScript.score > 33) 
             {
-                textMeshPro.text = GetRandomPhrase("Apollon", "type2");
+                selectedText = GetRandomPhrase("Apollon", "type2");
+                UpdateUIBlockSprite("Apollon", "Neutral");
             } 
             else 
             {
-                textMeshPro.text = GetRandomPhrase("Apollon", "type3");
+                selectedText = GetRandomPhrase("Apollon", "type3");
+                UpdateUIBlockSprite("Apollon", "Sad");
             }
+
+            textMeshPro.text = selectedText;
         }
     }
 
@@ -62,7 +82,6 @@ public class AddComment : MonoBehaviour
     {
         Dictionary<string, List<string>> selectedDict = null;
 
-        // Sélection du dictionnaire en fonction du type
         switch (type)
         {
             case "type1":
@@ -79,12 +98,53 @@ public class AddComment : MonoBehaviour
                 break;
         }
 
-        // Sélection aléatoire d'une phrase
         if (selectedDict.ContainsKey(nom))
         {
             List<string> phrases = selectedDict[nom];
             return phrases[Random.Range(0, phrases.Count)];
         }
         return "";
+    }
+
+    // Met à jour l'image du UI Block 2D en fonction du personnage et de l'émotion
+    private void UpdateUIBlockSprite(string character, string emotion)
+    {
+        Sprite newSprite = null;
+
+        if (character == "Arthémis")
+        {
+            switch (emotion)
+            {
+                case "type1":
+                    newSprite = artemisHappy;
+                    break;
+                case "type2":
+                    newSprite = artemisNeutral;
+                    break;
+                case "type3":
+                    newSprite = artemisSad;
+                    break;
+            }
+        }
+        else if (character == "Apollon")
+        {
+            switch (emotion)
+            {
+                case "type1":
+                    newSprite = apollonHappy;
+                    break;
+                case "type2":
+                    newSprite = apollonNeutral;
+                    break;
+                case "type3":
+                    newSprite = apollonSad;
+                    break;
+            }
+        }
+
+        if (newSprite != null)
+        {
+            //uiBlock2D.SetImage(newSprite);
+        }
     }
 }
