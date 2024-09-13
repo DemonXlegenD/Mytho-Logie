@@ -35,7 +35,7 @@ public class Tuto : MonoBehaviour
         stringsText.Add("I'll tell you how everything works");
         stringsText.Add("You see, this poster is incomplete.");
         stringsText.Add("Try and make Artemis happy with it");
-        stringsText.Add("The symbol on the top left will indicate what direction you have taken.");
+        stringsText.Add("The symbol on the top left will indicate what direction you have to take.");
         stringsText.Add("Be careful, sometimes making one god happy will anger the other.");
         stringsText.Add("Take one of the stickers and put it on the poster.");
         stringsText.Add("You can rotate it with right click, scale it with the scroll wheel and flip it with middle click.");

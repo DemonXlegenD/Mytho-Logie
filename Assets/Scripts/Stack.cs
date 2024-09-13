@@ -140,7 +140,7 @@ public class Stacks : MonoBehaviour
     private IEnumerator EndGame(float _timer)
     {
         yield return new WaitForSeconds(_timer);
-        StickerStack.SetActive(false);
+        //StickerStack.SetActive(false);
         Debug.Log("Oui");
         foreach (GameObject affiche in affichesUndone)
         {
