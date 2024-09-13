@@ -69,6 +69,13 @@ public class Stacks : MonoBehaviour
         {
             // Sélectionner une affiche aléatoire parmi les préfabriqués
             GameObject affichePrefab = affichesPrefabs[Random.Range(0, affichesPrefabs.Length)];
+            if (affichesUndone.Count == 1)
+            {
+                while (affichesUndone[0] == affichePrefab)
+                {
+                    affichePrefab = affichesPrefabs[Random.Range(0, affichesPrefabs.Length)];
+                }
+            }
             affichePrefab.GetComponent<SpriteRenderer>().sortingOrder = maxAffiche - i - 1;
             SpawnStickersForAffiche(affichePrefab);
             
