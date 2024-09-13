@@ -31,19 +31,19 @@ public class Tuto : MonoBehaviour
     {
         stringsText.Clear();
 
-        stringsText.Add("Ohhhh, hello, hello!! It is your first time, isn't it?");
-        stringsText.Add("I'll tell you how it works here");
-        stringsText.Add("You see this poster is unfinished.");
-        stringsText.Add("For this one you will have to make Artemis happy");
-        stringsText.Add("You must look at this simbol at each poster to know what is the direction you must take.");
-        stringsText.Add("Be careful, sometimes you will have to make one god sad by making another god kind.");
-        stringsText.Add("Grab a sticker and put it on the poster.");
-        stringsText.Add("And you can rotate it with right mouse button, zoom in/out with the wheel or flip it with the wheel click.");
-        stringsText.Add("Pay attention to their location.");
-        stringsText.Add("Well done! But carefull it won't always be so easy.");
-        stringsText.Add("Now you can validate the poster.");
-        stringsText.Add("Now you can validate the poster.");
-        stringsText.Add("Good Job! Now, get back to work!");
+        stringsText.Add("Hi hii!! It's your first time here, isn't it!");
+        stringsText.Add("I'll tell you how everything works");
+        stringsText.Add("You see, this poster is incomplete.");
+        stringsText.Add("Try and make Artemis happy with it");
+        stringsText.Add("The symbol on the top left will indicate what direction you have to take.");
+        stringsText.Add("Be careful, sometimes making one god happy will anger the other.");
+        stringsText.Add("Take one of the stickers and put it on the poster.");
+        stringsText.Add("You can rotate it with right click, scale it with the scroll wheel and flip it with middle click.");
+        stringsText.Add("Pay close attention to where you're sticking them.");
+        stringsText.Add("Well done! But it won't always be so easy.");
+        stringsText.Add("Now you can deliver the poster.");
+        stringsText.Add("Now you can deliver the poster.");
+        stringsText.Add("Good Job! Now, back to work!");
     }
     public void BlockInteractions()
     {

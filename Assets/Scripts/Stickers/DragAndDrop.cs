@@ -98,9 +98,10 @@ public class DragAndDrop : MonoBehaviour
                 // Flip horizontal avec le clic de la molette
                 if (Input.GetMouseButtonDown(2)) // Bouton de la molette
                 {
-                    Vector3 currentScale = transform.localScale;
-                    currentScale.x *= -1; // Inverser l'échelle X pour un flip horizontal
-                    transform.localScale = currentScale;
+                    GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
+                    //Vector3 currentScale = transform.localScale;
+                    //currentScale.x *= -1; // Inverser l'échelle X pour un flip horizontal
+                   // transform.localScale = currentScale;
                 }
             }
         }

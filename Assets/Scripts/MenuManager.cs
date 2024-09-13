@@ -16,6 +16,7 @@ public class MenuManager : MonoBehaviour
 
     [SerializeField] private VideoPlayer videoPlayer;
     [SerializeField] private int videoClipIndex = 0;
+    private int videoLoop = 3;
     private bool cinematic = false;
     private bool clicked = false;
 
@@ -47,6 +48,8 @@ public class MenuManager : MonoBehaviour
         {
             videoPlayer.isLooping = true;
             videoPlayer.Play();
+            videoLoop--;
+            if (videoLoop == 0) PlayNextVideo();
         }
         else
         {
