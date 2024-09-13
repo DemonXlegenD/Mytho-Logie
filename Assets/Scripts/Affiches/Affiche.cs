@@ -166,7 +166,7 @@ public class Affiche : MonoBehaviour
 
     private int ReadCSV(UnseenPoints.ClosestObjectInfo obj, string themeName)
     {
-        string filePath = "Assets/DataBase/ScoreDataBase.csv";
+        string filePath = Path.Combine(Application.streamingAssetsPath, "ScoreDataBase.csv");
         int results = 0;
         string theme_de_affiche = "";
 
