@@ -2883,7 +2883,7 @@ MonoBehaviour:
     LightingModel: 0
     ShadowCastingMode: 2
     ReceiveShadows: 1
-  PreviewSize: {x: 1920, y: 1071.6279, z: 0}
+  PreviewSize: {x: 1920, y: 1083.871, z: 0}
   visuals:
     Color: {r: 0, g: 0, b: 0, a: 0}
     CornerRadius:
@@ -10496,7 +10496,7 @@ MonoBehaviour:
       Mode: 1
     SoftenEdges: 1
     FillEnabled: 1
-  texture: {fileID: 0}
+  texture: {fileID: 2800000, guid: 47c75663300f6ee47abd72c3ee155577, type: 3}
   sprite: {fileID: 0}
 --- !u!1 &6344876505451598689
 GameObject:
@@ -16295,6 +16295,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4462490568219085078, guid: 4c4fd76ea8b22e045b57c9c68339de27, type: 3}
+      propertyPath: managedReferences[0].Sprites.HoveredSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d99dd5f23d2448d45930efb5cdb89162, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16361,6 +16365,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6377962154231609978, guid: 16cf7b1f177532f4cb26bc2682ea24e1, type: 3}
+      propertyPath: managedReferences[0].Sprites.HoveredSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d99dd5f23d2448d45930efb5cdb89162, type: 3}
     - target: {fileID: 8496342867788254849, guid: 16cf7b1f177532f4cb26bc2682ea24e1, type: 3}
       propertyPath: duration
       value: 0.5
