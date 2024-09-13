@@ -325,7 +325,7 @@ public class Affiche : MonoBehaviour
                 score += nb_score;
             }
             Debug.Log("hihi");
-            GameManager.Instance.score += score;
+            GameManager.Instance.score += score / 2;
             detect_sticker = false;
         }
     }

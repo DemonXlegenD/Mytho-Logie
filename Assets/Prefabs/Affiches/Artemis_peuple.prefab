@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 7233220898994325953}
   - component: {fileID: 4210593224032555862}
   m_Layer: 0
-  m_Name: Artemis_Peuple
+  m_Name: Artemis_peuple
   m_TagString: Affiche
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -174,7 +174,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -606744951
   m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2341bb9ce1307de4989ee684be794b40, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
