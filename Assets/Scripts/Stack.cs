@@ -9,12 +9,12 @@ public class Stacks : MonoBehaviour
     [SerializeField] private int indexActualAffiche = 0;
     [SerializeField] private GameObject[] affichesPrefabs; // Liste des préfabriqués d'affiches
     [SerializeField] private Interactable buttonNextAffiche;
-
+    [SerializeField] private GameObject ThemeLoadPoint;
+    [SerializeField] private List<Theme> themes;// Liste des sprites pour le thème
     [SerializeField] private GameObject currentAffiche;
     [SerializeField] private GameObject nextAffiche;
     private List<GameObject> affichesUndone;
     private List<GameObject> affichesDone;
-    [SerializeField] private TextMeshProTextBlock remainingAffiche;
 
     [SerializeField] private float timeBeforeEnding = 5f;
     [SerializeField] private int maxAffiche = 1;
@@ -29,6 +29,14 @@ public class Stacks : MonoBehaviour
     private BoxCollider2D spawnZone; // BoxCollider définissant la zone de spawn
     private int currentLvlMinScore;
     public bool endedGame = false;
+    public string selectedThemeName; // Stocke le nom du thème sélectionné
+    
+    [System.Serializable]
+    public class Theme
+    {
+        public string name; // Nom du thème, ex : "Artémis" ou "Apollon"
+        public Sprite sprite; // Sprite associé
+    }
 
     void Start()
     {
@@ -48,6 +56,7 @@ public class Stacks : MonoBehaviour
     void StartLevel()
     {
         endedGame = false;
+        AssignRandomThemeSprite();
         foreach (Transform child in StickerStack.transform) {
             GameObject.Destroy(child.gameObject);
         }
@@ -76,12 +85,26 @@ public class Stacks : MonoBehaviour
         current.SetIsMainAffiche(true);
         next.SetIsMainAffiche(false);
         current.SetMainOrder();
-        ChangeRemainingAfficheText();
     }
 
-    public void ChangeRemainingAfficheText()
+    private void AssignRandomThemeSprite()
     {
-        remainingAffiche.text = $"{affichesDone.Count} / {maxAffiche}";
+        if (themes.Count == 0)
+        {
+            Debug.LogWarning("Aucun thème disponible dans la liste.");
+            return;
+        }
+        ThemeLoadPoint.SetActive(true);
+
+        // Sélectionner un thème aléatoire
+        Theme selectedTheme = themes[Random.Range(0, themes.Count)];
+
+        // Assigner le sprite au SpriteRenderer de ThemeLoadPoint
+        ThemeLoadPoint.GetComponent<SpriteRenderer>().sprite = selectedTheme.sprite;
+
+        // Stocker le nom du thème sélectionné
+        selectedThemeName = selectedTheme.name;
+        Debug.Log("Thème sélectionné : " + selectedThemeName);
     }
 
     public void NextAffiche()
@@ -118,15 +141,18 @@ public class Stacks : MonoBehaviour
     {
         yield return new WaitForSeconds(_timer);
         StickerStack.SetActive(false);
-        foreach (GameObject affiche in affichesDone)
+        Debug.Log("Oui");
+        foreach (GameObject affiche in affichesUndone)
         {
             Affiche afficheScript = affiche.GetComponent<Affiche>();
             if (afficheScript != null)
             {
-                gameManager.score += afficheScript.score; // Ajouter le score de l'affiche au score global
+                Debug.Log("Haha ?");
+                afficheScript.AddScore();
             }
         }
         endedGame = true;
+        ThemeLoadPoint.SetActive(false);
         ConfigurationUI.StartCommentary();
     }
 
@@ -140,7 +166,7 @@ public class Stacks : MonoBehaviour
             return;
         }
 
-        int numberOfStickers = Random.Range(3, 6); // Nombre de stickers à instancier aléatoirement
+        int numberOfStickers = Random.Range(14, 17); // Nombre de stickers à instancier aléatoirement
 
         for (int i = 0; i < numberOfStickers; i++)
         {
@@ -164,8 +190,15 @@ public class Stacks : MonoBehaviour
     }
 
 
-    private void SwitchAnimation()
+    public void PauseButtonSwitch()
     {
+        StartCoroutine(WaitButton());
+    }
 
+    private IEnumerator WaitButton()
+    {
+        buttonNextAffiche.enabled = false;
+        yield return new WaitForSeconds(2);
+        buttonNextAffiche.enabled = true;
     }
 }

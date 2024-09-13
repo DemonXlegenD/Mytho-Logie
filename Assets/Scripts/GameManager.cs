@@ -53,6 +53,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Game");
     }
 
+    public void StartTuto()
+    {
+        SceneManager.LoadScene("TutoScene");
+    }
+
     public bool IsPlaying()
     {
         return _state == GameState.IsPlaying;

@@ -16,6 +16,7 @@ public class Affiche : MonoBehaviour
     bool isNext = false;
     bool detect_sticker = true;
     public int score;
+    public bool can_score = false;
     private float animationDuration = 0.5f;
     private bool isFirstAnimation = true;
     private Vector3 basePosition = Vector3.zero;
@@ -167,7 +168,31 @@ public class Affiche : MonoBehaviour
     {
         string filePath = "Assets/DataBase/ScoreDataBase.csv";
         int results = 0;
+        string theme_de_affiche = "";
 
+        string selectedThemeName_ = transform.parent.GetComponent<Stacks>().selectedThemeName;
+        bool neg = (selectedThemeName_ == "ArtemisGood" && themeName.Contains("Apollon")) // Demande d'apo : Flatter apollon            -> negatif
+                || (selectedThemeName_ == "ApollonGood" && themeName.Contains("Arthemis")) // Demande d'apo : Cracher sur Arthemis      -> negatif
+                || (selectedThemeName_ == "AppollonBad" && themeName.Contains("Apollon")) // Demande d'Arthemis : Cracher sur apollon   -> negatif
+                || (selectedThemeName_ == "ArtemisBad" && themeName.Contains("Arthemis")); // Demande d'apo : Cracher sur arthemis      -> negatif
+
+        bool pos = (selectedThemeName_ == "AppollonBad" && themeName.Contains("Arthemis")) // Demande d'arthemis : flatter arthemis     -> positif
+                || (selectedThemeName_ == "ArtemisBad" && themeName.Contains("Apollon")) // Demande d'apollon : flatter apollon         -> positif
+                || (selectedThemeName_ == "ArtemisGood" && themeName.Contains("Arthemis")) // Demande d'arthemis : flatter arthemis     -> positif
+                || (selectedThemeName_ == "ApollonGood" && themeName.Contains("Apollon")); // Demande d'apollon : flatter apollon       -> positif
+
+        if (pos)
+        {
+            theme_de_affiche = "Positif";
+        } else if (neg)
+        {
+            theme_de_affiche = "Negatif";
+        } else 
+        {
+            theme_de_affiche = "Positif";
+        }
+
+        themeName = themeName.Replace("(Clone)", "") + "_" + theme_de_affiche;
         using (StreamReader sr = new StreamReader(filePath))
         {
             string headerLine = sr.ReadLine(); // Lire l'entête
@@ -177,12 +202,12 @@ public class Affiche : MonoBehaviour
                 string line = sr.ReadLine();
                 string[] values = line.Split(',');
 
-                string theme = values[0];
-                string sticker = values[1];
+                string nom_affiche_et_theme = values[0];
+                string sticker_nom = values[1];
                 string emplacement = values[2];
                 int point = int.Parse(values[3]);
 
-                if (obj.StickerName.Contains(sticker) && obj.name == emplacement && themeName.Contains(theme))
+                if (obj.StickerName.Contains(sticker_nom) && obj.name == emplacement && themeName.Contains(nom_affiche_et_theme))
                 {
                     results = point;
                 }
@@ -190,36 +215,11 @@ public class Affiche : MonoBehaviour
         }
 
         Debug.Log($"Emplacement du sticker {obj.StickerName} : {obj.name} à {obj.distance}. Pour le thème : {themeName} cela donne {results}");
-        score += results;
         return results;
     }
 
     void Update()
     {
-        if (isNext)
-        {
-            if (detect_sticker)
-            {
-                //AttachStickers();
-                List<UnseenPoints.ClosestObjectInfo> ObjectsForTheScore = ClosePage();
-                foreach (UnseenPoints.ClosestObjectInfo obj in ObjectsForTheScore)
-                {
-                    int nb_score = ReadCSV(obj, name);
-                    GameManager.Instance.score += nb_score;
-                }
-                detect_sticker = false;
-            }
-            // Mouvement vers la position cible
-            transform.position = Vector2.Lerp(transform.position, stockPosition, 5.0f * Time.deltaTime);
-
-            // Vérification si l'objet est proche de la position finale
-            if (Vector2.Distance(transform.position, stockPosition) < 0.01f) // Seuil de tolérance (peut être ajusté)
-            {
-                transform.position = stockPosition; // S'assurer que l'objet est exactement à la position finale
-                isNext = false; // Arrêter le mouvement
-            }
-        }
-
         //Animation Left
         if (isGoingLeft)
         {
@@ -311,6 +311,22 @@ public class Affiche : MonoBehaviour
                 isGoingRight = false;
                 elapsedTimeRight = 0f;
             }
+        }
+    }
+
+    public void AddScore()
+    {
+        if (detect_sticker)
+        {
+            List<UnseenPoints.ClosestObjectInfo> ObjectsForTheScore = ClosePage();
+            foreach (UnseenPoints.ClosestObjectInfo obj in ObjectsForTheScore)
+            {
+                int nb_score = ReadCSV(obj, name);
+                score += nb_score;
+            }
+            Debug.Log("hihi");
+            GameManager.Instance.score += score;
+            detect_sticker = false;
         }
     }
 

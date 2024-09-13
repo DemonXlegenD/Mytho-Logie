@@ -2,17 +2,86 @@ using Nova;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject buttonStart;
     [SerializeField] private GameObject buttonQuit;
+    [SerializeField] private GameObject buttonMusic;
+    [SerializeField] private GameObject buttonUnmusic;
     [SerializeField] private GameObject panelQuit;
 
+    [SerializeField] private List<GameObject> hideToStart;
+
+    [SerializeField] private VideoPlayer videoPlayer;
+    [SerializeField] private int videoClipIndex = 0;
+    private bool cinematic = false;
+    private bool clicked = false;
+
+    [SerializeField] private List<VideoClip> videos;
+
     public bool isMute = false;
+
+    void Start()
+    {
+
+    }
+
+    private void Update()
+    {
+        if (cinematic)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                    Debug.Log("Clicked");
+                    videoClipIndex++;
+                PlayNextVideo();
+            }
+        }
+    }
+
+    void OnVideoFinished(VideoPlayer vp)
+    {
+        if (videoClipIndex == videos.Count - 1)
+        {
+            videoPlayer.isLooping = true;
+            videoPlayer.Play();
+        }
+        else
+        {
+            videoClipIndex++;
+            PlayNextVideo();
+        }
+    }
+
+    private void PlayNextVideo()
+    {
+        if (videoClipIndex < videos.Count)
+        {
+            if (videoPlayer.isPlaying) videoPlayer.Stop();
+            videoPlayer.clip = videos[videoClipIndex];
+            videoPlayer.Play();
+        }
+        else
+        {
+            GameManager.Instance.StartTuto();
+        }
+        
+    }
+
+
+
     public void OnPlayButtonClick()
     {
-        GameManager.Instance.StartGame();
+        cinematic = true;
+        videoPlayer.isLooping = false;
+        foreach (GameObject gameObject in hideToStart)
+        {
+            gameObject.SetActive(false);
+        }
+        videoPlayer.loopPointReached += OnVideoFinished;
+        PlayNextVideo();
     }
 
     public void OnQuitButtonClick()
@@ -37,23 +106,31 @@ public class MenuManager : MonoBehaviour
 
     public void OnSoundButtonClick()
     {
-        if(isMute) GameManager.Instance.UnmuteAudio();
+        if (isMute) GameManager.Instance.UnmuteAudio();
         else GameManager.Instance.MuteAudio();
         isMute = !isMute;
+        buttonUnmusic.SetActive(isMute);
+        buttonMusic.SetActive(!isMute);
     }
 
 
     public void HidePanelQuit()
     {
+        videoPlayer.Play();
         buttonQuit.GetComponent<Interactable>().enabled = true;
         buttonStart.GetComponent<Interactable>().enabled = true;
+        buttonMusic.GetComponent<Interactable>().enabled = true;
+        buttonUnmusic.GetComponent<Interactable>().enabled = true;
         panelQuit.SetActive(false);
     }
 
     public void ShowPanelQuit()
     {
+        videoPlayer.Pause();
         buttonQuit.GetComponent<Interactable>().enabled = false;
         buttonStart.GetComponent<Interactable>().enabled = false;
+        buttonMusic.GetComponent<Interactable>().enabled = false;
+        buttonUnmusic.GetComponent<Interactable>().enabled = false;
         panelQuit.SetActive(true);
     }
 }
