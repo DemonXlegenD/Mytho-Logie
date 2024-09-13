@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 7233220898994325953}
   - component: {fileID: 4210593224032555862}
   m_Layer: 0
-  m_Name: Apollon_Bataille
+  m_Name: Apollon_bataille
   m_TagString: Affiche
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -363,6 +363,7 @@ MonoBehaviour:
   stickersIn: []
   stockPosition: {x: 15, y: 0}
   score: 0
+  can_score: 0
 --- !u!114 &4210593224032555862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,10 +378,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameObjects:
   - {fileID: 2042029443460444565}
-  - {fileID: 6918236903059287449}
+  - {fileID: 6279682982058199159}
+  - {fileID: 1791671290009226433}
+  - {fileID: 3057683906505119364}
   - {fileID: 367715406945746124}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 367715406945746124}
+  - {fileID: 2161637438853438144}
 --- !u!1 &6279682982058199159
 GameObject:
   m_ObjectHideFlags: 0

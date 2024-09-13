@@ -10,6 +10,7 @@ public class DragAndDrop : MonoBehaviour
     public bool isDragging = false;
     private string stickerText = ""; // Le texte du sticker
     private bool isEditingText = false;
+    private bool isFocused = false; // Pour vérifier si le sticker est sélectionné pour éditer
 
     [SerializeField] private Texture2D cursorTextureHover;
     [SerializeField] private Texture2D cursorTextureClic;
@@ -33,7 +34,6 @@ public class DragAndDrop : MonoBehaviour
 
     void Update()
     {
-        
         if (isTextSticker && isEditingText)
         {
             // Ajouter du texte avec les touches clavier
@@ -49,43 +49,64 @@ public class DragAndDrop : MonoBehaviour
                 else if ((c == '\n') || (c == '\r')) // Retour à la ligne ou entrée
                 {
                     isEditingText = false; // Fin de l'édition du texte
+                    isFocused = false; // Désactiver l'encadrement
                 }
                 else if (stickerText.Length < 18)
                 {
                     stickerText += c; // Ajouter le caractère au texte du sticker
                 }
             }
+
+            // Désactiver l'édition si on clique ailleurs
+            if (Input.GetMouseButtonDown(0) && !IsMouseOverSticker())
+            {
+                isEditingText = false;
+                isFocused = false;
+            }
         }
 
-        Vector2 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-
-        // Vérifier si la souris survole l'objet
-        RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
-        if (hit.collider != null && hit.collider.gameObject == gameObject)
+        // Si ce n'est pas un sticker texte, autoriser redimensionnement et rotation
+        if (!isTextSticker)
         {
-            //Debug.Log("HAAAN");
-            // Redimensionnement avec la molette de la souris
-            float scroll = Input.GetAxis("Mouse ScrollWheel");
-            if (scroll != 0f)
-            {
-                totalScroll = Mathf.Clamp(totalScroll + scroll, -1, 1);
+            Vector2 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
-                if (totalScroll != -1 && totalScroll != 1)
+            // Vérifier si la souris survole l'objet
+            RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
+            if (hit.collider != null && hit.collider.gameObject == gameObject)
+            {
+                // Redimensionnement avec la molette de la souris
+                float scroll = Input.GetAxis("Mouse ScrollWheel");
+                if (scroll != 0f)
                 {
-                    Vector3 newScale = transform.localScale + Vector3.one * 2 * scroll * scaleSpeed;
-                    newScale.x = Mathf.Max(0.1f, newScale.x);
-                    newScale.y = Mathf.Max(0.1f, newScale.y);
-                    transform.localScale = newScale;
-                }
-            }
+                    totalScroll = Mathf.Clamp(totalScroll + scroll, -1, 1);
 
-            // Rotation en maintenant le clic droit
-            if (Input.GetMouseButton(1))
-            {
-                transform.Rotate(Vector3.forward, -rotationSpeed * Time.deltaTime);
+                    if (totalScroll != -1 && totalScroll != 1)
+                    {
+                        Vector3 newScale = transform.localScale + Vector3.one * 2 * scroll * scaleSpeed;
+                        newScale.x = Mathf.Max(0.1f, newScale.x);
+                        newScale.y = Mathf.Max(0.1f, newScale.y);
+                        transform.localScale = newScale;
+                    }
+                }
+
+                // Rotation en maintenant le clic droit
+                if (Input.GetMouseButton(1))
+                {
+                    transform.Rotate(Vector3.forward, -rotationSpeed * Time.deltaTime);
+                }
+
+                // Flip horizontal avec le clic de la molette
+                if (Input.GetMouseButtonDown(2)) // Bouton de la molette
+                {
+                    GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
+                    //Vector3 currentScale = transform.localScale;
+                    //currentScale.x *= -1; // Inverser l'échelle X pour un flip horizontal
+                   // transform.localScale = currentScale;
+                }
             }
         }
     }
+
 
     void OnMouseEnter()
     {
@@ -113,7 +134,7 @@ public class DragAndDrop : MonoBehaviour
 
         if (isTextSticker)
         {
-            isEditingText = true; // Activer l'édition du texte au clic
+            isFocused = true; // Activer l'encadrement
         }
     }
 
@@ -134,9 +155,10 @@ public class DragAndDrop : MonoBehaviour
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Sticker_stamp");
         isDragging = false;
         Cursor.SetCursor(cursorTextureHover, Vector2.zero, cursorMode);
+        
         if (isTextSticker)
         {
-            isEditingText = false; // Désactiver l'édition lorsque l'on relâche la souris
+            isEditingText = true; // Activer l'édition après avoir lâché le sticker
         }
     }
 
@@ -145,13 +167,32 @@ public class DragAndDrop : MonoBehaviour
         if (isTextSticker)
         {
             GUIStyle textStyle = new GUIStyle();
-            textStyle.fontSize = 20; // Taille de la police
+            textStyle.fontSize = 30; // Taille de la police
             textStyle.fontStyle = FontStyle.Bold; // Texte en gras
             textStyle.normal.textColor = Color.white; // Couleur du texte
 
             // Afficher le texte sur le sticker
             Vector2 stickerPosition = mainCamera.WorldToScreenPoint(transform.position);
-            GUI.Label(new Rect(stickerPosition.x + 18, Screen.height - stickerPosition.y - 12, 200, 50), stickerText, textStyle);
+
+            // Encadrer le texte avec un rectangle blanc
+            if (isFocused)
+            {
+                Rect textRect = new Rect(stickerPosition.x + 30, Screen.height - stickerPosition.y - 15, 300, 30);
+                GUI.Box(textRect, GUIContent.none); // Encadrement blanc
+                GUI.Label(textRect, stickerText, textStyle);
+            }
+            else
+            {
+                GUI.Label(new Rect(stickerPosition.x + 30, Screen.height - stickerPosition.y - 15, 200, 50), stickerText, textStyle);
+            }
         }
+    }
+
+    // Vérifie si la souris est au-dessus du sticker
+    private bool IsMouseOverSticker()
+    {
+        Vector2 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        Collider2D hit = Physics2D.OverlapPoint(mousePos);
+        return hit != null && hit.gameObject == gameObject;
     }
 }

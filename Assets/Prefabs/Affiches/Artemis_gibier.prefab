@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 7233220898994325953}
   - component: {fileID: 4210593224032555862}
   m_Layer: 0
-  m_Name: Artemis_Gibier
+  m_Name: Artemis_gibier
   m_TagString: Affiche
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -303,13 +303,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stickers:
+  - {fileID: 3669921976156452316, guid: 70d7b48b021ed774dab7ae95e3005276, type: 3}
+  - {fileID: 3669921976156452316, guid: 63f16351c94250943823dbbdb5199536, type: 3}
+  - {fileID: 3669921976156452316, guid: 0d5ba7f5169ceb641b664bd61050d750, type: 3}
+  - {fileID: 3669921976156452316, guid: 2bfeff0c4af00f743b77ce98bf1faf57, type: 3}
+  - {fileID: 3669921976156452316, guid: a326cf2b4e94cb04abfc913700370443, type: 3}
+  - {fileID: 3669921976156452316, guid: fdd19d2da59795c419030fae97548b8e, type: 3}
+  - {fileID: 3669921976156452316, guid: c3167407e60844f48aada2f9d32e4942, type: 3}
+  - {fileID: 3669921976156452316, guid: e23d4b0737dea8844a94cf236274800c, type: 3}
+  - {fileID: 3669921976156452316, guid: 2f33758aa9f415349a0e22dde53a7875, type: 3}
   - {fileID: 3669921976156452316, guid: 082d5cb678ce1244d9a0d9f52f384c60, type: 3}
-  - {fileID: 2904828432644569266, guid: 3c929a3ace7ca7b4e8450b28d8e788ce, type: 3}
-  - {fileID: 3669921976156452316, guid: e76f3ee50428905429d35dc6181850b8, type: 3}
   - {fileID: 3669921976156452316, guid: 029e7548a3a48ca45be6e90df2061eaa, type: 3}
+  - {fileID: 3669921976156452316, guid: d6351ddcbba237941bdfbc6a435dac82, type: 3}
+  - {fileID: 3669921976156452316, guid: 5027edb572a0f0f498b935cf5e092a50, type: 3}
+  - {fileID: 3669921976156452316, guid: 7c37974e90c24ff49bcfe53f0c3221b6, type: 3}
+  - {fileID: 3669921976156452316, guid: d448edea7feba2d4890c86f53e82723e, type: 3}
+  - {fileID: 3669921976156452316, guid: f38fa192fa913084f8245336dc629c43, type: 3}
+  - {fileID: 3669921976156452316, guid: 366f47bac6477ce4e81971357aa166a7, type: 3}
+  - {fileID: 3669921976156452316, guid: e23d4b0737dea8844a94cf236274800c, type: 3}
+  - {fileID: 3669921976156452316, guid: 0841e87563557704e81521d9f6cd63b1, type: 3}
+  - {fileID: 3669921976156452316, guid: 306de6b476abb564f974b2066df3c8b7, type: 3}
+  - {fileID: 3669921976156452316, guid: eb7bab09d5b60d24e9d24ce759f2ed40, type: 3}
+  - {fileID: 3669921976156452316, guid: 75689d566d2dcdb4192d96f6776e0b4f, type: 3}
   stickersIn: []
   stockPosition: {x: 15, y: 0}
   score: 0
+  can_score: 0
 --- !u!114 &4210593224032555862
 MonoBehaviour:
   m_ObjectHideFlags: 0
