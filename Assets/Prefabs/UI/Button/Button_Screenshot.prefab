@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2905764967384224463
+--- !u!1 &1751064392316636974
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,53 +8,53 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2905764967384224458}
-  - component: {fileID: 2905764967384224459}
-  - component: {fileID: 2905764967384224460}
-  - component: {fileID: 2905764967384224461}
-  - component: {fileID: 2905764967384224457}
-  - component: {fileID: 2905764967384224462}
+  - component: {fileID: 1751064392316636971}
+  - component: {fileID: 1751064392316636970}
+  - component: {fileID: 1751064392316636973}
+  - component: {fileID: 1751064392316636972}
+  - component: {fileID: 1751064392316636968}
+  - component: {fileID: 1751064392316636975}
   m_Layer: 0
-  m_Name: Button_Dark
+  m_Name: Button_Screenshot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2905764967384224458
+--- !u!4 &1751064392316636971
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2905764967384224463}
+  m_GameObject: {fileID: 1751064392316636974}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2905764967384224459
+--- !u!114 &1751064392316636970
 MonoBehaviour:
   m_ObjectHideFlags: 10
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2905764967384224463}
+  m_GameObject: {fileID: 1751064392316636974}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9117b6d975111c47b064a4373cc67ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2905764967384224460
+--- !u!114 &1751064392316636973
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2905764967384224463}
+  m_GameObject: {fileID: 1751064392316636974}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c395591f6f08fb41897eb437d91b587, type: 3}
@@ -295,13 +295,13 @@ MonoBehaviour:
     FillEnabled: 1
   texture: {fileID: 2800000, guid: 61d034458d3684c49a9ca871ce64bf74, type: 3}
   sprite: {fileID: 0}
---- !u!114 &2905764967384224461
+--- !u!114 &1751064392316636972
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2905764967384224463}
+  m_GameObject: {fileID: 1751064392316636974}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0a75001f00536d40ad613f41ed2bdc0, type: 3}
@@ -316,28 +316,28 @@ MonoBehaviour:
       type: {class: ButtonVisuals, ns: NovaSamples.UIControls, asm: Nova.UIControls}
       data:
         TransitionType: 2
-        transitionTarget: {fileID: 2905764967384224460}
+        transitionTarget: {fileID: 1751064392316636973}
         DefaultColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
         HoveredColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
         PressedColor: {r: 0.15, g: 0.15, b: 0.15, a: 1}
         TransitionDuration: 0.1
         Sprites:
           DefaultSprite: {fileID: 21300000, guid: 61d034458d3684c49a9ca871ce64bf74, type: 3}
-          HoveredSprite: {fileID: 21300000, guid: 1afb4c8efb53cc44dbaf674fde9f193b, type: 3}
+          HoveredSprite: {fileID: 21300000, guid: 61d034458d3684c49a9ca871ce64bf74, type: 3}
           PressedSprite: {fileID: 21300000, guid: 61d034458d3684c49a9ca871ce64bf74, type: 3}
         Animations:
           DefaultAnimation: Normal
           HoveredAnimation: Highlighted
           PressedAnimation: Pressed
-        Background: {fileID: 2905764967384224460}
+        Background: {fileID: 1751064392316636973}
         Label: {fileID: 0}
---- !u!114 &2905764967384224457
+--- !u!114 &1751064392316636968
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2905764967384224463}
+  m_GameObject: {fileID: 1751064392316636974}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd0e5f112b0a05b43b4ba50233a47743, type: 3}
@@ -380,13 +380,13 @@ MonoBehaviour:
     Y: 0
     Z: 0
   GestureSpace: 0
---- !u!114 &2905764967384224462
+--- !u!114 &1751064392316636975
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2905764967384224463}
+  m_GameObject: {fileID: 1751064392316636974}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e8eaa600bb80d04992471d49e941b0b, type: 3}
@@ -394,7 +394,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnClicked:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ConfigurationUI, Assembly-CSharp
+        m_MethodName: TakeScreenShot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnPress:
     m_PersistentCalls:
       m_Calls: []
