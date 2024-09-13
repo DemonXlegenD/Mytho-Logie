@@ -65,7 +65,7 @@ public class MenuManager : MonoBehaviour
         }
         else
         {
-            GameManager.Instance.StartGame();
+            GameManager.Instance.StartTuto();
         }
         
     }
