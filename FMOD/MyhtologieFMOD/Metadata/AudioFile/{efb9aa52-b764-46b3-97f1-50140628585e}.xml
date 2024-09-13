@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{efb9aa52-b764-46b3-97f1-50140628585e}">
+		<property name="assetPath">
+			<value>AUDIO/Clocks, Tick, Electric, Tick 01 SND12582.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>10</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{10b74d5f-fefe-4528-a8a1-d7e9df6ae38e}</destination>
+		</relationship>
+	</object>
+</objects>

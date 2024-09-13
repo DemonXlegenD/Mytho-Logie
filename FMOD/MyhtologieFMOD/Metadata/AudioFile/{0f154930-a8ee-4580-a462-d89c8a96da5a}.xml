@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{0f154930-a8ee-4580-a462-d89c8a96da5a}">
+		<property name="assetPath">
+			<value>Level_loop.ogg</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>86.142854166666666</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{10b74d5f-fefe-4528-a8a1-d7e9df6ae38e}</destination>
+		</relationship>
+	</object>
+</objects>

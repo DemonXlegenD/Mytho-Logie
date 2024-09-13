@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{ec44e878-d79c-438c-9a2a-8163c7999a57}">
+		<property name="assetPath">
+			<value>AUDIO/Ambience, Desert, Mountainside, Morning, Saddle Mountain Wildlife Refuge 02 SND68623.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>152.36557291666668</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{10b74d5f-fefe-4528-a8a1-d7e9df6ae38e}</destination>
+		</relationship>
+	</object>
+</objects>
