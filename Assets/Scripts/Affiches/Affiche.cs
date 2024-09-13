@@ -172,14 +172,14 @@ public class Affiche : MonoBehaviour
 
         string selectedThemeName_ = transform.parent.GetComponent<Stacks>().selectedThemeName;
         bool neg = (selectedThemeName_ == "ArtemisGood" && themeName.Contains("Apollon")) // Demande d'apo : Flatter apollon            -> negatif
-                || (selectedThemeName_ == "ApollonGood" && themeName.Contains("Arthemis")) // Demande d'apo : Cracher sur Arthemis      -> negatif
+                || (selectedThemeName_ == "AppollonGood" && themeName.Contains("Arthemis")) // Demande d'apo : Cracher sur Arthemis      -> negatif
                 || (selectedThemeName_ == "AppollonBad" && themeName.Contains("Apollon")) // Demande d'Arthemis : Cracher sur apollon   -> negatif
                 || (selectedThemeName_ == "ArtemisBad" && themeName.Contains("Arthemis")); // Demande d'apo : Cracher sur arthemis      -> negatif
 
         bool pos = (selectedThemeName_ == "AppollonBad" && themeName.Contains("Arthemis")) // Demande d'arthemis : flatter arthemis     -> positif
                 || (selectedThemeName_ == "ArtemisBad" && themeName.Contains("Apollon")) // Demande d'apollon : flatter apollon         -> positif
                 || (selectedThemeName_ == "ArtemisGood" && themeName.Contains("Arthemis")) // Demande d'arthemis : flatter arthemis     -> positif
-                || (selectedThemeName_ == "ApollonGood" && themeName.Contains("Apollon")); // Demande d'apollon : flatter apollon       -> positif
+                || (selectedThemeName_ == "AppollonGood" && themeName.Contains("Apollon")); // Demande d'apollon : flatter apollon       -> positif
 
         if (pos)
         {
@@ -325,7 +325,7 @@ public class Affiche : MonoBehaviour
                 score += nb_score;
             }
             Debug.Log("hihi");
-            GameManager.Instance.score += score;
+            GameManager.Instance.score += score / 2;
             detect_sticker = false;
         }
     }

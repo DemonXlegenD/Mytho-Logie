@@ -6,6 +6,7 @@ using Nova.TMP;
 public class UpdateScore : MonoBehaviour
 {
     private TextMeshProTextBlock textMeshPro;
+   [SerializeField] private Jauges jauge;
     public Stacks stack;
     public bool total = true; 
     public int id = 0;
@@ -26,7 +27,10 @@ public class UpdateScore : MonoBehaviour
     {
         if (total && stack.endedGame) 
         {
+            if (GameManager.Instance.score < 0) GameManager.Instance.score = 0;
+            if (GameManager.Instance.score > 100) GameManager.Instance.score = 100;
             textMeshPro.text = (GameManager.Instance.score).ToString();
+            jauge.Change(GameManager.Instance.score);
         } else if (stack.endedGame) {
             Affiche afficheScript = stack.GetAffiches()[id].GetComponent<Affiche>();
             textMeshPro.text = afficheScript.score.ToString();
